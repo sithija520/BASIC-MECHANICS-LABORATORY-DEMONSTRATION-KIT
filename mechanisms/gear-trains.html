@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-en="Gear Trains | Mechanism Kit" data-lang-si="Gear Trains | Mechanism Kit">Gear Trains | Mechanism Kit</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+     <link rel="stylesheet" href="../css/style.css"> </head>
+<body> <nav class="navbar navbar-expand-lg navbar-dark navbar-frosted">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html"><i class="fas fa-cogs me-2"></i>Mechanism Kit</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html" data-lang-en="Home" data-lang-si="මුල් පිටුව">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../assembly.html" data-lang-en="Assembly" data-lang-si="එකලස් කිරීම">Assembly</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" aria-current="page" href="#" id="navbarDropdownMechanisms" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-lang-en="Mechanisms" data-lang-si="යාන්ත්‍රණ">
+                Mechanisms
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMechanisms">
+                 <li><a class="dropdown-item" href="gears.html" data-lang-en="Gears & Pinions" data-lang-si="Gears & Pinions">Gears & Pinions</a></li>
+                 <li><a class="dropdown-item active" href="gear-trains.html" data-lang-en="Gear Trains" data-lang-si="Gear Trains">Gear Trains</a></li>
+                 <li><a class="dropdown-item" href="belts.html" data-lang-en="Belts & Pulleys" data-lang-si="Belts & Pulleys">Belts & Pulleys</a></li>
+                 <li><a class="dropdown-item" href="cams.html" data-lang-en="CAM Mechanisms" data-lang-si="CAM Mechanisms">CAM Mechanisms</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../experiments.html" data-lang-en="Experiments" data-lang-si="පරීක්ෂණ">Experiments</a>
+            </li>
+            <li class="nav-item">
+                 <a class="nav-link" href="../about.html" data-lang-en="About Us" data-lang-si="අපි ගැන">About Us</a>
+            </li>
+             <li class="nav-item">
+                 <button id="lang-toggle-btn" class="btn btn-sm btn-outline-light" data-switch-to="si">සිංහල</button>
+             </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container mt-5 mb-5">
+        <div class="row">
+            <aside class="col-lg-3 col-md-4">
+                <h4 data-lang-en="Mechanism Menu" data-lang-si="යාන්ත්‍රණ මෙනුව" class="mb-3 d-none d-md-block"><i class="fas fa-stream me-2"></i><span data-lang-en="Select Mechanism" data-lang-si="යාන්ත්‍රණය තෝරන්න">Select Mechanism</span></h4>
+                <div class="list-group mechanism-nav-sidebar">
+                    <a href="gears.html" class="list-group-item list-group-item-action">
+                        <i class="fas fa-cog fa-fw"></i><span data-lang-en="Gears & Pinions" data-lang-si="Gears & Pinions">Gears & Pinions</span>
+                    </a>
+                    <a href="gear-trains.html" class="list-group-item list-group-item-action active" aria-current="true">
+                        <i class="fas fa-sitemap fa-fw"></i><span data-lang-en="Gear Trains" data-lang-si="Gear Trains">Gear Trains</span>
+                    </a>
+                    <a href="belts.html" class="list-group-item list-group-item-action">
+                        <i class="fas fa-link fa-fw"></i><span data-lang-en="Belts & Pulleys" data-lang-si="Belts & Pulleys">Belts & Pulleys</span>
+                    </a>
+                    <a href="cams.html" class="list-group-item list-group-item-action">
+                        <i class="fas fa-drafting-compass fa-fw"></i><span data-lang-en="CAM Mechanisms" data-lang-si="CAM Mechanisms">CAM Mechanisms</span>
+                    </a>
+                </div>
+            </aside>
+
+            <article class="col-lg-9 col-md-8 mechanism-content">
+                <h1 data-lang-en="Gear Trains" data-lang-si="Gear Trains"><i class="fas fa-sitemap me-2"></i>Gear Trains</h1>
+                
+                <section class="content-section-inner-page">
+                    <h2 data-lang-en="Gear Trains: Technical Overview and Profile Application" data-lang-si="Gear Trains: තාක්ෂණික දළ විශ්ලේෂණය සහ පැතිකඩ යෙදුම" class="mb-4 h4"><i class="fas fa-book-reader me-2"></i>Gear Trains: Technical Overview and Profile Application</h2>
+
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h3 class="h5 mb-0" data-lang-en="Definition" data-lang-si="අර්ථ දැක්වීම">Definition</h3>
+                        </div>
+                        <div class="card-body">
+                            <p data-lang-en="A gear train is a mechanical system formed by mounting two or more gears on a frame to transmit power and motion between shafts. The gears within a train are in mesh, with the teeth of one gear engaging the teeth of an adjacent gear." data-lang-si="Shafts අතර බලය සහ චලිතය සම්ප්‍රේෂණය කිරීම සඳහා රාමුවක් මත ගියර් දෙකක් හෝ වැඩි ගණනක් සවිකිරීමෙන් සාදන ලද යාන්ත්‍රික පද්ධතියක් gear train ලෙස හැඳින්වේ. Train එකක් තුළ ඇති ගියර් එකිනෙක සම්බන්ධව (mesh) පවතින අතර, එක් ගියරයක දත් යාබද ගියරයක දත් සමඟ සම්බන්ධ වේ.">A gear train is a mechanical system formed by mounting two or more gears on a frame to transmit power and motion between shafts. The gears within a train are in mesh, with the teeth of one gear engaging the teeth of an adjacent gear.</p>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h3 class="h5 mb-0" data-lang-en="Primary Technical Purposes" data-lang-si="ප්‍රධාන තාක්ෂණික අරමුණු">Primary Technical Purposes</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" data-lang-en="<strong>Modification of Angular Velocity:</strong> Gear trains are used to achieve a specific velocity ratio (VR) between the input (driver) and output (driven) shafts. VR = ω<sub>out</sub> / ω<sub>in</sub> = N<sub>in</sub> / N<sub>out</sub>, where ω is angular velocity and N is the number of teeth." data-lang-si="<strong>කෝණික ප්‍රවේගය වෙනස් කිරීම:</strong> Input (driver) සහ output (driven) shafts අතර නිශ්චිත ප්‍රවේග අනුපාතයක් (VR) ලබා ගැනීමට gear trains භාවිතා කරයි. VR = ω<sub>out</sub> / ω<sub>in</sub> = N<sub>in</sub> / N<sub>out</sub>, මෙහි ω යනු කෝණික ප්‍රවේගය වන අතර N යනු දත් ගණනයි." data-html-content="true"><strong>Modification of Angular Velocity:</strong> Gear trains are used to achieve a specific velocity ratio (VR) between the input (driver) and output (driven) shafts. VR = ω<sub>out</sub> / ω<sub>in</sub> = N<sub>in</sub> / N<sub>out</sub>, where ω is angular velocity and N is the number of teeth.</li>
+                                <li class="list-group-item" data-lang-en="<strong>Torque Amplification/Reduction:</strong> Concurrently with velocity changes, torque (T) is altered: T<sub>out</sub> = VR ⋅ T<sub>in</sub> ⋅ η (where η is efficiency). Reducing speed increases torque, and vice-versa." data-lang-si="<strong>ව්‍යවර්තය වැඩි කිරීම/අඩු කිරීම:</strong> ප්‍රවේග වෙනස්වීම් සමඟම, ව්‍යවර්තය (T) ද වෙනස් වේ: T<sub>out</sub> = VR ⋅ T<sub>in</sub> ⋅ η (මෙහි η යනු කාර්යක්ෂමතාවයි). වේගය අඩු කිරීමෙන් ව්‍යවර්තය වැඩි වන අතර, අනෙක් අතටද එසේම වේ." data-html-content="true"><strong>Torque Amplification/Reduction:</strong> Concurrently with velocity changes, torque (T) is altered: T<sub>out</sub> = VR ⋅ T<sub>in</sub> ⋅ η (where η is efficiency). Reducing speed increases torque, and vice-versa.</li>
+                                <li class="list-group-item" data-lang-en="<strong>Change in Direction of Rotation:</strong> External gears in mesh reverse the direction of rotation. An idler gear can be used to maintain the same direction between driver and driven gears or to bridge a gap." data-lang-si="<strong>භ්‍රමණ දිශාව වෙනස් කිරීම:</strong> එකිනෙක සම්බන්ධ බාහිර ගියර් භ්‍රමණ දිශාව ආපසු හරවයි. Driver සහ driven ගියර් අතර එකම දිශාව පවත්වා ගැනීමට හෝ පරතරයක් පියවීමට idler ගියරයක් භාවිතා කළ හැක." data-html-content="true"><strong>Change in Direction of Rotation:</strong> External gears in mesh reverse the direction of rotation. An idler gear can be used to maintain the same direction between driver and driven gears or to bridge a gap.</li>
+                                <li class="list-group-item" data-lang-en="<strong>Power Transmission over Distance:</strong> Connecting shafts that may be offset or at an angle." data-lang-si="<strong>දුරක් හරහා බල සම්ප්‍රේෂණය:</strong> Offset වී ඇති හෝ කෝණයකින් පිහිටි shafts සම්බන්ධ කිරීම." data-html-content="true"><strong>Power Transmission over Distance:</strong> Connecting shafts that may be offset or at an angle.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h3 class="h5 mb-0" data-lang-en="Application of Involute and Cycloidal Gear Sets" data-lang-si="Involute සහ Cycloidal Gear කාණ්ඩ යෙදීම">Application of Involute and Cycloidal Gear Sets</h3>
+                        </div>
+                        <div class="card-body">
+                            <p data-lang-en="Gear trains can be constructed using gears with various tooth profiles, most commonly involute or, less frequently in modern applications, cycloidal profiles." data-lang-si="විවිධ දත් පැතිකඩ සහිත ගියර් භාවිතා කරමින් gear trains සෑදිය හැක. බහුලවම involute පැතිකඩද, නවීන යෙදුම් වලදී අඩුවෙන් cycloidal පැතිකඩද භාවිතා වේ.">Gear trains can be constructed using gears with various tooth profiles, most commonly involute or, less frequently in modern applications, cycloidal profiles.</p>
+                            <p class="mt-2" data-lang-en="In your specific context, you are utilizing:" data-lang-si="ඔබේ නිශ්චිත සන්දර්භය තුළ, ඔබ භාවිතා කරන්නේ:">In your specific context, you are utilizing:</p>
+                            
+                            <div class="accordion mt-3" id="gearProfileAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingInvolute">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInvolute" aria-expanded="false" aria-controls="collapseInvolute">
+                                            <span data-lang-en="Two Involute Gear Sets" data-lang-si="Involute Gear කාණ්ඩ දෙකක්">Two Involute Gear Sets</span>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseInvolute" class="accordion-collapse collapse" aria-labelledby="headingInvolute" data-bs-parent="#gearProfileAccordion">
+                                        <div class="accordion-body">
+                                            <p data-lang-en="These sets, when assembled into gear trains, will leverage the characteristics of the involute profile, such as:" data-lang-si="මෙම කාණ්ඩ, gear trains ලෙස එකලස් කළ විට, involute පැතිකඩෙහි ලක්ෂණ ප්‍රයෝජනයට ගනු ඇත, එනම්:">These sets, when assembled into gear trains, will leverage the characteristics of the involute profile, such as:</p>
+                                            <ul class="list-unstyled ps-3">
+                                                <li data-lang-en="<i class='fas fa-check text-success me-2'></i>Constant pressure angle and smooth transmission of motion." data-lang-si="<i class='fas fa-check text-success me-2'></i>නියත පීඩන කෝණය සහ සුමට චලිත සම්ප්‍රේෂණය." data-html-content="true"><i class='fas fa-check text-success me-2'></i>Constant pressure angle and smooth transmission of motion.</li>
+                                                <li data-lang-en="<i class='fas fa-check text-success me-2'></i>Tolerance to minor variations in center distance without affecting the velocity ratio." data-lang-si="<i class='fas fa-check text-success me-2'></i>ප්‍රවේග අනුපාතයට බලපෑමක් නොකර center distance හි සුළු වෙනස්වීම් වලට ඔරොත්තු දීම." data-html-content="true"><i class='fas fa-check text-success me-2'></i>Tolerance to minor variations in center distance without affecting the velocity ratio.</li>
+                                                <li data-lang-en="<i class='fas fa-check text-success me-2'></i>Suitability for high-speed and high-power applications due to favorable stress distribution and ease of manufacture with high precision." data-lang-si="<i class='fas fa-check text-success me-2'></i>හිතකර පීඩන ව්‍යාප්තිය සහ ඉහළ නිරවද්‍යතාවයකින් නිෂ්පාදනයේ පහසුව නිසා අධිවේගී සහ අධි-බල යෙදුම් සඳහා සුදුසු වීම." data-html-content="true"><i class='fas fa-check text-success me-2'></i>Suitability for high-speed and high-power applications due to favorable stress distribution and ease of manufacture with high precision.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingCycloidal">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCycloidal" aria-expanded="false" aria-controls="collapseCycloidal">
+                                            <span data-lang-en="Two Cycloidal Gear Sets" data-lang-si="Cycloidal Gear කාණ්ඩ දෙකක්">Two Cycloidal Gear Sets</span>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseCycloidal" class="accordion-collapse collapse" aria-labelledby="headingCycloidal" data-bs-parent="#gearProfileAccordion">
+                                        <div class="accordion-body">
+                                            <p data-lang-en="These sets, when used to form separate gear trains, will exhibit properties of the cycloidal profile, including:" data-lang-si="මෙම කාණ්ඩ, වෙනම gear trains සෑදීමට භාවිතා කළ විට, cycloidal පැතිකඩෙහි ගුණාංග ප්‍රදර්ශනය කරනු ඇත, ඒවා නම්:">These sets, when used to form separate gear trains, will exhibit properties of the cycloidal profile, including:</p>
+                                            <ul class="list-unstyled ps-3">
+                                                <li data-lang-en="<i class='fas fa-check text-success me-2'></i>Potentially lower friction and wear due to more rolling contact, especially in pinions with a small number of teeth." data-lang-si="<i class='fas fa-check text-success me-2'></i>විශේෂයෙන්ම කුඩා දත් ගණනක් සහිත pinions වලදී, වැඩිපුර rolling contact නිසා ඇතිවිය හැකි අඩු ඝර්ෂණය සහ ඇඳීම." data-html-content="true"><i class='fas fa-check text-success me-2'></i>Potentially lower friction and wear due to more rolling contact, especially in pinions with a small number of teeth.</li>
+                                                <li data-lang-en="<i class='fas fa-check text-success me-2'></i>Absence of interference issues, allowing for pinions with fewer teeth than typically feasible with involute profiles without modification." data-lang-si="<i class='fas fa-check text-success me-2'></i>Interference ගැටළු නොමැති වීම, එමගින් involute පැතිකඩ සමඟ සාමාන්‍යයෙන් කළ නොහැකි තරම් අඩු දත් ගණනක් සහිත pinions (වෙනස් කිරීමකින් තොරව) සඳහා ඉඩ සැලසීම." data-html-content="true"><i class='fas fa-check text-success me-2'></i>Absence of interference issues, allowing for pinions with fewer teeth than typically feasible with involute profiles without modification.</li>
+                                                <li data-lang-en="<small><i class='fas fa-exclamation-circle text-warning me-2'></i>However, they require precise center distances for correct conjugate action and have a variable pressure angle.</small>" data-lang-si="<small><i class='fas fa-exclamation-circle text-warning me-2'></i>කෙසේ වෙතත්, නිවැරදි conjugate ක්‍රියාව සඳහා ඒවාට නිරවද්‍ය center distances අවශ්‍ය වන අතර විචල්‍ය පීඩන කෝණයක් ඇත.</small>" data-html-content="true"><small><i class='fas fa-exclamation-circle text-warning me-2'></i>However, they require precise center distances for correct conjugate action and have a variable pressure angle.</small></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> </div>
+                    </div>
+                    
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-light-accent">
+                            <h3 class="h5 mb-0" data-lang-en="Compound Gear Set Configuration in the Kit" data-lang-si="කට්ටලයේ ඇති සංයුක්ත ගියර් කාණ්ඩ සැකැස්ම">Compound Gear Set Configuration in the Kit</h3>
+                        </div>
+                        <div class="card-body">
+                            <p data-lang-en="For demonstrating compound gear trains, the kit typically utilizes the following Involute gears:" data-lang-si="සංයුක්ත ගියර් පද්ධති නිරූපණය කිරීම සඳහා, කට්ටලය සාමාන්‍යයෙන් පහත සඳහන් Involute ගියර් භාවිතා කරයි:">For demonstrating compound gear trains, the kit typically utilizes the following Involute gears:</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" data-lang-en="Two (2) 150mm diameter Involute spur gears." data-lang-si="150mm විෂ්කම්භය සහිත Involute spur ගියර් දෙකක් (2).">Two (2) 150mm diameter Involute spur gears.</li>
+                                <li class="list-group-item" data-lang-en="Two (2) 110mm diameter Involute spur gears." data-lang-si="110mm විෂ්කම්භය සහිත Involute spur ගියර් දෙකක් (2).">Two (2) 110mm diameter Involute spur gears.</li>
+                            </ul>
+                            <p class="mt-3" data-lang-en="A common compound gear train setup involves:" data-lang-si="සාමාන්‍ය සංයුක්ත ගියර් පද්ධති සැකැස්මකට ඇතුළත් වන්නේ:">A common compound gear train setup involves:</p>
+                            <ul class="list-unstyled ps-3">
+                                <li data-lang-en="<i class='fas fa-cogs text-primary me-2'></i>An input shaft (driver) with one of the gears (e.g., a 110mm gear)." data-lang-si="<i class='fas fa-cogs text-primary me-2'></i>එක් ගියරයක් සහිත input shaft එකක් (driver) (උදා: 110mm ගියරයක්)." data-html-content="true"><i class='fas fa-cogs text-primary me-2'></i>An input shaft (driver) with one of the gears (e.g., a 110mm gear).</li>
+                                <li data-lang-en="<i class='fas fa-cogs text-primary me-2'></i>An intermediate (compound) shaft where one 150mm Involute gear and one 110mm Involute gear are coupled together to rotate on the same axis. The 150mm gear on this shaft meshes with the input gear, and the 110mm gear on this same shaft acts as the driver for the next stage." data-lang-si="<i class='fas fa-cogs text-primary me-2'></i>150mm Involute ගියරයක් සහ 110mm Involute ගියරයක් එකම අක්ෂය මත භ්‍රමණය වීමට එකට සම්බන්ධ කර ඇති අතරමැදි (compound) shaft එකක්. මෙම shaft එකේ ඇති 150mm ගියරය input ගියරය සමඟ mesh වන අතර, මෙම shaft එකේම ඇති 110mm ගියරය ඊළඟ අදියර සඳහා driver ලෙස ක්‍රියා කරයි." data-html-content="true"><i class='fas fa-cogs text-primary me-2'></i>An intermediate (compound) shaft where one 150mm Involute gear and one 110mm Involute gear are coupled together to rotate on the same axis. The 150mm gear on this shaft meshes with the input gear, and the 110mm gear on this same shaft acts as the driver for the next stage.</li>
+                                <li data-lang-en="<i class='fas fa-cogs text-primary me-2'></i>An output shaft (driven) with the remaining 150mm Involute gear, which meshes with the 110mm gear from the compound shaft." data-lang-si="<i class='fas fa-cogs text-primary me-2'></i>Compound shaft එකෙන් එන 110mm ගියරය සමඟ mesh වන, ඉතිරි 150mm Involute ගියරය සහිත output shaft එකක් (driven)." data-html-content="true"><i class='fas fa-cogs text-primary me-2'></i>An output shaft (driven) with the remaining 150mm Involute gear, which meshes with the 110mm gear from the compound shaft.</li>
+                            </ul>
+                            <p class="mt-2" data-lang-en="This configuration allows for a significant change in the overall gear ratio compared to a simple gear train using the same gears individually." data-lang-si="මෙම සැකැස්ම මගින්, එම ගියර් තනි තනිව භාවිතා කරන සරල ගියර් පද්ධතියකට සාපේක්ෂව සමස්ත ගියර් අනුපාතයේ සැලකිය යුතු වෙනසක් සඳහා ඉඩ සලසයි.">This configuration allows for a significant change in the overall gear ratio compared to a simple gear train using the same gears individually.</p>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning mt-4" role="alert">
+                      <h4 class="alert-heading h6"><i class="fas fa-exclamation-triangle me-2"></i><span data-lang-en="Important Note on Usage" data-lang-si="භාවිතය පිළිබඳ වැදගත් සටහන">Important Note on Usage</span></h4>
+                      <p class="mb-0" data-lang-en="As specified, your involute gear sets and cycloidal gear sets are employed independently. This means an involute gear train will consist solely of involute gears, and a cycloidal gear train will consist solely of cycloidal gears. Mixing profiles within a single direct meshing train is not standard practice and would lead to incompatible motion." data-lang-si="නිශ්චිතව දක්වා ඇති පරිදි, ඔබේ involute ගියර් කාණ්ඩ සහ cycloidal ගියර් කාණ්ඩ ස්වාධීනව භාවිතා වේ. මෙයින් අදහස් කරන්නේ involute gear train එකක් සම්පූර්ණයෙන්ම involute ගියර් වලින්ද, cycloidal gear train එකක් සම්පූර්ණයෙන්ම cycloidal ගියර් වලින්ද සමන්විත වන බවයි. තනි direct meshing train එකක් තුළ පැතිකඩ මිශ්‍ර කිරීම සම්මත ක්‍රමයක් නොවන අතර නොගැලපෙන චලිතයකට තුඩු දෙනු ඇත.">As specified, your involute gear sets and cycloidal gear sets are employed independently. This means an involute gear train will consist solely of involute gears, and a cycloidal gear train will consist solely of cycloidal gears. Mixing profiles within a single direct meshing train is not standard practice and would lead to incompatible motion.</p>
+                    </div>
+                </section> <section class="content-section-inner-page bg-light p-4 rounded mt-4">
+                     <h2 data-lang-en="Gear Trains in the Kit" data-lang-si="කට්ටලයේ ඇති Gear Trains" class="mb-3 h4"><i class="fas fa-tools me-2"></i>Gear Trains in the Kit</h2>
+                     <div class="row align-items-center">
+                         <div class="col-md-7">
+                            <p data-lang-en="Our demonstrator kit allows for the assembly of both Simple and Compound Gear Trains using the provided Involute spur gears. The flexible mounting system on the baseboard facilitates various configurations." data-lang-si="අපගේ නිරූපණ කට්ටලය, සපයා ඇති Involute spur ගියර් භාවිතා කරමින් සරල සහ සංයුක්ත ගියර් පද්ධති දෙකම එකලස් කිරීමට ඉඩ සලසයි. පාදක පුවරුවේ ඇති නම්‍යශීලී සවිකිරීමේ පද්ධතිය විවිධ සැකසුම් සඳහා පහසුකම් සපයයි.">Our demonstrator kit allows for the assembly of both Simple and Compound Gear Trains using the provided Involute spur gears. The flexible mounting system on the baseboard facilitates various configurations.</p>
+                            
+                             <h5 class="mt-3" data-lang-en="Key Components for Gear Trains:" data-lang-si="Gear Trains සඳහා ප්‍රධාන උපාංග:">Key Components for Gear Trains:</h5>
+                             <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item" data-lang-en="A set of Involute spur gears of varying sizes (e.g., 150mm and 110mm diameter gears)." data-lang-si="විවිධ ප්‍රමාණයේ Involute spur ගියර් කට්ටලයක් (උදා: 150mm සහ 110mm විෂ්කම්භ ගියර්).">A set of Involute spur gears of varying sizes (e.g., 150mm and 110mm diameter gears).</li>
+                                <li class="list-group-item" data-lang-en="Multiple shafts that can be mounted on the baseboard." data-lang-si="පාදක පුවරුව මත සවිකළ හැකි shafts කිහිපයක්.">Multiple shafts that can be mounted on the baseboard.</li>
+                                <li class="list-group-item" data-lang-en="Bearings or bushings for smooth rotation of shafts." data-lang-si="Shafts සුමටව භ්‍රමණය වීම සඳහා bearings හෝ bushings.">Bearings or bushings for smooth rotation of shafts.</li>
+                             </ul>
+                         </div>
+                         <div class="col-md-5">
+                            <img src="../images/gear_trains/21.jpg" alt="Kit Gear Train Assembly" class="img-fluid rounded shadow-sm my-3 mx-auto d-block" style="max-width: 300px;">
+
+                        </div>
+                     </div>
+
+                     <h5 class="mt-2" data-lang-en="Assembly Insights:" data-lang-si="එකලස් කිරීම පිළිබඳ තොරතුරු:">Assembly Insights:</h5>
+                     <ul class="list-unstyled ps-3">
+                        <li data-lang-en="<i class='fas fa-check text-success me-2'></i>For a <strong>Simple Gear Train</strong>, typically two gears are mounted on separate shafts, meshing directly." data-lang-si="<i class='fas fa-check text-success me-2'></i><strong>සරල ගියර් පද්ධතියක්</strong> සඳහා, සාමාන්‍යයෙන් ගියර් දෙකක් වෙනම shafts මත සෘජුව mesh වන සේ සවිකරනු ලැබේ." data-html-content="true"><i class='fas fa-check text-success me-2'></i>For a <strong>Simple Gear Train</strong>, typically two gears are mounted on separate shafts, meshing directly.</li>
+                        <li data-lang-en="<i class='fas fa-cogs text-primary me-2'></i>For a <strong>Compound Gear Train</strong>, one 150mm Involute gear and one 110mm Involute gear are coupled on the same intermediate shaft." data-lang-si="<i class='fas fa-cogs text-primary me-2'></i><strong>සංයුක්ත ගියර් පද්ධතියක්</strong> සඳහා, එක් 150mm Involute ගියරයක් සහ එක් 110mm Involute ගියරයක් එකම අතරමැදි shaft එකක සම්බන්ධ කර ඇත." data-html-content="true"><i class='fas fa-cogs text-primary me-2'></i>For a <strong>Compound Gear Train</strong>, one 150mm Involute gear and one 110mm Involute gear are coupled on the same intermediate shaft.</li>
+                     </ul>
+
+
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                &copy; <span class="current-year"></span> <span data-lang-en="Mechanism Demonstrator Project. All Rights Reserved." data-lang-si="යාන්ත්‍රණ නිරූපණ ව්‍යාපෘතිය. සියලුම හිමිකම් ඇවිරිණි.">Mechanism Demonstrator Project. All Rights Reserved.</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-en="Belts & Pulleys | Mechanism Kit" data-lang-si="Belts & Pulleys | Mechanism Kit">Belts & Pulleys | Mechanism Kit</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+     <link rel="stylesheet" href="../css/style.css"> </head>
+<body> <nav class="navbar navbar-expand-lg navbar-dark navbar-frosted">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html"><i class="fas fa-cogs me-2"></i>Mechanism Kit</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html" data-lang-en="Home" data-lang-si="මුල් පිටුව">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../assembly.html" data-lang-en="Assembly" data-lang-si="එකලස් කිරීම">Assembly</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" aria-current="page" href="#" id="navbarDropdownMechanisms" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-lang-en="Mechanisms" data-lang-si="යාන්ත්‍රණ">
+                Mechanisms
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMechanisms">
+                 <li><a class="dropdown-item" href="gears.html" data-lang-en="Gears & Pinions" data-lang-si="Gears & Pinions">Gears & Pinions</a></li>
+                 <li><a class="dropdown-item" href="gear-trains.html" data-lang-en="Gear Trains" data-lang-si="Gear Trains">Gear Trains</a></li>
+                 <li><a class="dropdown-item active" href="belts.html" data-lang-en="Belts & Pulleys" data-lang-si="Belts & Pulleys">Belts & Pulleys</a></li>
+                 <li><a class="dropdown-item" href="cams.html" data-lang-en="CAM Mechanisms" data-lang-si="CAM Mechanisms">CAM Mechanisms</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../experiments.html" data-lang-en="Experiments" data-lang-si="පරීක්ෂණ">Experiments</a>
+            </li>
+            <li class="nav-item">
+                 <a class="nav-link" href="../about.html" data-lang-en="About Us" data-lang-si="අපි ගැන">About Us</a>
+            </li>
+             <li class="nav-item">
+                 <button id="lang-toggle-btn" class="btn btn-sm btn-outline-light" data-switch-to="si">සිංහල</button>
+             </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container mt-5 mb-5">
+        <div class="row">
+            <aside class="col-lg-3 col-md-4">
+                <h4 data-lang-en="Mechanism Menu" data-lang-si="යාන්ත්‍රණ මෙනුව" class="mb-3 d-none d-md-block"><i class="fas fa-stream me-2"></i><span data-lang-en="Select Mechanism" data-lang-si="යාන්ත්‍රණය තෝරන්න">Select Mechanism</span></h4>
+                <div class="list-group mechanism-nav-sidebar shadow-sm">
+                    <a href="gears.html" class="list-group-item list-group-item-action">
+                        <i class="fas fa-cog fa-fw"></i><span data-lang-en="Gears & Pinions" data-lang-si="Gears & Pinions">Gears & Pinions</span>
+                    </a>
+                    <a href="gear-trains.html" class="list-group-item list-group-item-action">
+                        <i class="fas fa-sitemap fa-fw"></i><span data-lang-en="Gear Trains" data-lang-si="Gear Trains">Gear Trains</span>
+                    </a>
+                    <a href="belts.html" class="list-group-item list-group-item-action active" aria-current="true">
+                        <i class="fas fa-link fa-fw"></i><span data-lang-en="Belts & Pulleys" data-lang-si="Belts & Pulleys">Belts & Pulleys</span>
+                    </a>
+                    <a href="cams.html" class="list-group-item list-group-item-action">
+                        <i class="fas fa-drafting-compass fa-fw"></i><span data-lang-en="CAM Mechanisms" data-lang-si="CAM Mechanisms">CAM Mechanisms</span>
+                    </a>
+                </div>
+            </aside>
+
+            <article class="col-lg-9 col-md-8 mechanism-content">
+                <h1 data-lang-en="Belt and Pulley Systems" data-lang-si="Belt and Pulley Systems"><i class="fas fa-link me-2"></i>Belt and Pulley Systems</h1>
+                <hr class="mb-4">
+
+                <section class="content-section">
+                    <h2 data-lang-en="Belt and Pulley Systems: Technical Overview (Flat Belt Focus)" data-lang-si="Belt and Pulley Systems: තාක්ෂණික දළ විශ්ලේෂණය (Flat Belt අවධානය)" class="mb-4 h4"><i class="fas fa-book-reader me-2"></i>Belt and Pulley Systems: Technical Overview (Flat Belt Focus)</h2>
+
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header">
+                            <h3 class="h5 mb-0" data-lang-en="Definition" data-lang-si="අර්ථ දැක්වීම">Definition</h3>
+                        </div>
+                        <div class="card-body">
+                            <p data-lang-en="A belt and pulley system is a power transmission mechanism that utilizes a flexible loop, known as a belt, running on the circumference of two or more rotating wheels, known as pulleys. These systems transmit power and motion between shafts, often over considerable distances." data-lang-si="Belt සහ pulley පද්ධතියක් යනු shafts අතර බලය සහ චලිතය සම්ප්‍රේෂණය කරන යාන්ත්‍රණයකි. මෙහිදී belt ලෙස හඳුන්වන නම්‍යශීලී ලූපයක්, pulleys ලෙස හඳුන්වන භ්‍රමණය වන රෝද දෙකක හෝ වැඩි ගණනක පරිධිය මත දිවේ. මෙම පද්ධති බොහෝ විට සැලකිය යුතු දුරක් හරහා බලය සම්ප්‍රේෂණය කරයි.">A belt and pulley system is a power transmission mechanism that utilizes a flexible loop, known as a belt, running on the circumference of two or more rotating wheels, known as pulleys. These systems transmit power and motion between shafts, often over considerable distances.</p>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header">
+                            <h3 class="h5 mb-0" data-lang-en="Primary Technical Purposes" data-lang-si="ප්‍රධාන තාක්ෂණික අරමුණු">Primary Technical Purposes</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" data-lang-en="<strong>Power Transmission:</strong> Efficiently transmit rotational power from a driving pulley to a driven pulley." data-lang-si="<strong>බල සම්ප්‍රේෂණය:</strong> Driving pulley එකක සිට driven pulley එකකට භ්‍රමණ බලය කාර්යක්ෂමව සම්ප්‍රේෂණය කිරීම." data-html-content="true"><strong>Power Transmission:</strong> Efficiently transmit rotational power from a driving pulley to a driven pulley.</li>
+                                <li class="list-group-item" data-lang-en="<strong>Velocity Ratio Modification:</strong> By using pulleys of different diameters, the angular velocity can be increased or decreased. The velocity ratio (VR) is approximately VR = D<sub>driven</sub> / D<sub>driver</sub>, where D is the pulley diameter (ignoring slip)." data-lang-si="<strong>ප්‍රවේග අනුපාත වෙනස් කිරීම:</strong> විවිධ විෂ්කම්භයන් සහිත pulleys භාවිතා කිරීමෙන්, කෝණික ප්‍රවේගය වැඩි කිරීමට හෝ අඩු කිරීමට හැකිය. ප්‍රවේග අනුපාතය (VR) ආසන්න වශයෙන් VR = D<sub>driven</sub> / D<sub>driver</sub> වේ, මෙහි D යනු pulley විෂ්කම්භයයි (slip වීම නොසලකා හැරේ)." data-html-content="true"><strong>Velocity Ratio Modification:</strong> By using pulleys of different diameters, the angular velocity can be increased or decreased. The velocity ratio (VR) is approximately VR = D<sub>driven</sub> / D<sub>driver</sub>, where D is the pulley diameter (ignoring slip).</li>
+                                <li class="list-group-item" data-lang-en="<strong>Torque Modification:</strong> Inversely related to the velocity ratio; reducing speed increases torque, and vice-versa (accounting for efficiency)." data-lang-si="<strong>ව්‍යවර්ත වෙනස් කිරීම:</strong> ප්‍රවේග අනුපාතයට ප්‍රතිලෝමව සම්බන්ධ වේ; වේගය අඩු කිරීමෙන් ව්‍යවර්තය වැඩි වන අතර, අනෙක් අතටද එසේම වේ (කාර්යක්ෂමතාව සැලකිල්ලට ගනිමින්)." data-html-content="true"><strong>Torque Modification:</strong> Inversely related to the velocity ratio; reducing speed increases torque, and vice-versa (accounting for efficiency).</li>
+                                <li class="list-group-item" data-lang-en="<strong>Change in Direction of Rotation (with crossed belt):</strong> An open belt drive results in the driven pulley rotating in the same direction as the driver. A crossed belt drive results in opposite directions of rotation." data-lang-si="<strong>භ්‍රමණ දිශාව වෙනස් කිරීම (crossed belt සමග):</strong> Open belt drive එකකදී driven pulley එක driver pulley එකේම දිශාවට භ්‍රමණය වේ. Crossed belt drive එකකදී ප්‍රතිවිරුද්ධ දිශාවලට භ්‍රමණය වේ." data-html-content="true"><strong>Change in Direction of Rotation (with crossed belt):</strong> An open belt drive results in the driven pulley rotating in the same direction as the driver. A crossed belt drive results in opposite directions of rotation.</li>
+                                <li class="list-group-item" data-lang-en="<strong>Shock and Vibration Damping:</strong> The elasticity of the belt can help absorb shock loads and dampen vibrations between shafts." data-lang-si="<strong>කම්පන සහ කම්පන අවශෝෂණය:</strong> Belt එකේ ප්‍රත්‍යස්ථතාවය shafts අතර කම්පන බර අවශෝෂණය කර ගැනීමට සහ කම්පන අඩු කිරීමට උපකාරී වේ." data-html-content="true"><strong>Shock and Vibration Damping:</strong> The elasticity of the belt can help absorb shock loads and dampen vibrations between shafts.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-light-accent"> <h3 class="h5 mb-0" data-lang-en="Focus: Flat Belt Systems" data-lang-si="අවධානය: Flat Belt පද්ධති">Focus: Flat Belt Systems</h3>
+                        </div>
+                        <div class="card-body">
+                            <p data-lang-en="You are specifically using a flat belt. Key technical characteristics include:" data-lang-si="ඔබ විශේෂයෙන්ම flat belt එකක් භාවිතා කරයි. ප්‍රධාන තාක්ෂණික ලක්ෂණ අතරට ඇතුළත් වන්නේ:">You are specifically using a flat belt. Key technical characteristics include:</p>
+                            <ul class="list-unstyled ps-3">
+                                <li class="mb-2"><strong data-lang-en="Belt Material:" data-lang-si="Belt ද්‍රව්‍ය:">Belt Material:</strong> <span data-lang-en="Typically made from leather, rubber, synthetic polymers, or fabric-reinforced composites." data-lang-si="සාමාන්‍යයෙන් සම්, රබර්, කෘත්‍රිම පොලිමර්, හෝ රෙදි-ශක්තිමත් කරන ලද සංයෝග වලින් සාදා ඇත.">Typically made from leather, rubber, synthetic polymers, or fabric-reinforced composites.</span></li>
+                                <li class="mb-2"><strong data-lang-en="Pulley Surface:" data-lang-si="Pulley මතුපිට:">Pulley Surface:</strong> <span data-lang-en="Flat belts run on pulleys that are usually slightly crowned (convex surface). This crowning helps to keep the belt centered on the pulley during operation, preventing it from 'walking off.'" data-lang-si="Flat belts සාමාන්‍යයෙන් මඳක් crowned (උත්තල මතුපිටක් සහිත) pulleys මත දිවේ. මෙම crowning මගින් ක්‍රියාත්මක වන විට belt එක pulley එක මත කේන්ද්‍රගතව තබා ගැනීමට උපකාරී වන අතර, එය 'ඉවතට ඇදී යාම' වළක්වයි.">Flat belts run on pulleys that are usually slightly crowned (convex surface). This crowning helps to keep the belt centered on the pulley during operation, preventing it from "walking off."</span></li>
+                                <li class="mb-2"><strong data-lang-en="Transmission Mechanism:" data-lang-si="සම්ප්‍රේෂණ යාන්ත්‍රණය:">Transmission Mechanism:</strong> <span data-lang-en="Power is transmitted via friction between the belt and the pulley surfaces. Sufficient belt tension is crucial for effective power transmission and to minimize slip." data-lang-si="Belt එක සහ pulley මතුපිට අතර ඇති ඝර්ෂණය හරහා බලය සම්ප්‍රේෂණය වේ. ඵලදායී බල සම්ප්‍රේෂණය සහ slip වීම අවම කිරීම සඳහා ප්‍රමාණවත් belt tension එක අත්‍යවශ්‍ය වේ.">Power is transmitted via friction between the belt and the pulley surfaces. Sufficient belt tension is crucial for effective power transmission and to minimize slip.</span></li>
+                                <li class="mb-2"><strong data-lang-en="Slip:" data-lang-si="Slip වීම:">Slip:</strong> <span data-lang-en="Some degree of slip (creep and frictional slip) is inherent in flat belt drives, meaning the velocity ratio is not perfectly constant, especially under varying loads." data-lang-si="Flat belt drives වල යම් මට්ටමක slip වීමක් (creep සහ frictional slip) අනිවාර්යයෙන්ම ඇත. මෙයින් අදහස් කරන්නේ, විශේෂයෙන්ම විචල්‍ය බර යටතේ, ප්‍රවේග අනුපාතය සම්පූර්ණයෙන්ම නියත නොවන බවයි.">Some degree of slip (creep and frictional slip) is inherent in flat belt drives, meaning the velocity ratio is not perfectly constant, especially under varying loads.</span></li>
+                            </ul>
+                            <div class="row mt-4">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <h5 class="h6 text-success" data-lang-en="Advantages:" data-lang-si="වාසි:"><i class="fas fa-check-circle fa-fw me-2"></i>Advantages:</h5>
+                                    <ul class="list-unstyled ps-3">
+                                        <li data-lang-en="Simple and cost-effective." data-lang-si="සරල සහ ලාභදායී.">Simple and cost-effective.</li>
+                                        <li data-lang-en="Can transmit power over long distances." data-lang-si="දිගු දුරක් හරහා බලය සම්ප්‍රේෂණය කළ හැක.">Can transmit power over long distances.</li>
+                                        <li data-lang-en="Relatively quiet operation." data-lang-si="සාපේක්ෂව නිහඬ ක්‍රියාකාරීත්වය.">Relatively quiet operation.</li>
+                                        <li data-lang-en="Acts as a mechanical fuse; excessive overload can cause the belt to slip, protecting more expensive components." data-lang-si="යාන්ත්‍රික fuse එකක් ලෙස ක්‍රියා කරයි; අධික බරක් යෙදුවහොත් belt එක ලිස්සා යා හැකි අතර, එමගින් වඩා මිල අධික උපාංග ආරක්ෂා වේ.">Acts as a mechanical fuse; excessive overload can cause the belt to slip, protecting more expensive components.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="h6 text-danger" data-lang-en="Disadvantages:" data-lang-si="අවාසි:"><i class="fas fa-times-circle fa-fw me-2"></i>Disadvantages:</h5>
+                                    <ul class="list-unstyled ps-3">
+                                        <li data-lang-en="Lower power transmission capacity compared to V-belts or chain drives for a given size." data-lang-si="දී ඇති ප්‍රමාණයකට V-belts හෝ chain drives වලට සාපේක්ෂව අඩු බල සම්ප්‍රේෂණ ධාරිතාව.">Lower power transmission capacity compared to V-belts or chain drives for a given size.</li>
+                                        <li data-lang-en="Requires higher tension than V-belts, potentially leading to higher bearing loads." data-lang-si="V-belts වලට වඩා වැඩි tension එකක් අවශ්‍ය වන අතර, එමගින් bearing මත වැඩි බරක් ඇතිවිය හැක.">Requires higher tension than V-belts, potentially leading to higher bearing loads.</li>
+                                        <li data-lang-en="Susceptible to slip, especially if tension is incorrect or conditions are oily/wet." data-lang-si="විශේෂයෙන්ම tension එක වැරදි නම් හෝ තෙල් සහිත/තෙත් තත්ත්වයන් යටතේ slip වීමට ඉඩ ඇත.">Susceptible to slip, especially if tension is incorrect or conditions are oily/wet.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info mt-4" role="alert">
+                      <h4 class="alert-heading h6" data-lang-en="Regarding Your Gear Sets" data-lang-si="ඔබේ Gear කාණ්ඩ පිළිබඳව"><i class="fas fa-info-circle me-2"></i>Regarding Your Gear Sets</h4>
+                      <p data-lang-en="You mentioned: 'we are using two involute teeth gear sets and two cycloidal gear sets for this, but these two are used separately.'" data-lang-si="ඔබ සඳහන් කළා: 'අපි මේ සඳහා involute දත් සහිත ගියර් කාණ්ඩ දෙකක් සහ cycloidal දත් සහිත ගියර් කාණ්ඩ දෙකක් භාවිතා කරනවා, නමුත් මේ දෙක වෙන වෙනම භාවිතා කරන්නේ.'">You mentioned: "we are using two involute teeth gear sets and two cycloidal gear sets for this, but these two are used separately."</p>
+                      <p class="mb-1" data-lang-en="It's important to clarify that belt and pulley systems and gear systems are distinct power transmission mechanisms." data-lang-si="Belt සහ pulley පද්ධති සහ ගියර් පද්ධති යනු වෙනස් බල සම්ප්‍රේෂණ යාන්ත්‍රණ බව පැහැදිලි කිරීම වැදගත් වේ.">It's important to clarify that belt and pulley systems and gear systems are distinct power transmission mechanisms.</p>
+                      <ul class="list-unstyled ps-3 small">
+                          <li data-lang-en="Belt and pulley systems transmit power through a flexible belt and friction (or positive engagement in the case of toothed belts, which are different from your specified flat belt)." data-lang-si="Belt සහ pulley පද්ධති නම්‍යශීලී belt එකක් සහ ඝර්ෂණය (හෝ දත් සහිත belts වලදී positive engagement, එය ඔබ සඳහන් කළ flat belt එකට වඩා වෙනස්) හරහා බලය සම්ප්‍රේෂණය කරයි.">Belt and pulley systems transmit power through a flexible belt and friction (or positive engagement in the case of toothed belts, which are different from your specified flat belt).</li>
+                          <li data-lang-en="Gear systems transmit power through the direct meshing of toothed wheels (gears and pinions) with profiles like involute or cycloidal." data-lang-si="ගියර් පද්ධති involute හෝ cycloidal වැනි පැතිකඩ සහිත දත් සහිත රෝද (gears සහ pinions) සෘජුව සම්බන්ධ වීම හරහා බලය සම්ප්‍රේෂණය කරයි.">Gear systems transmit power through the direct meshing of toothed wheels (gears and pinions) with profiles like involute or cycloidal.</li>
+                      </ul>
+                      <p class="mt-2 mb-0" data-lang-en="While both can be part of a larger machine or project to achieve different stages of power transmission or motion control, the involute and cycloidal gear sets you referred to are separate from the flat belt and pulley system itself. They would be used in different parts of your setup or for different experiments/applications, each leveraging their unique characteristics as previously discussed. For instance, a motor might drive a gear set, and the output of that gear set might then drive a belt and pulley system, or they might be used in entirely separate applications." data-lang-si="බල සම්ප්‍රේෂණයේ හෝ චලිත පාලනයේ විවිධ අදියරයන් ලබා ගැනීම සඳහා මේ දෙකම විශාල යන්ත්‍රයක හෝ ව්‍යාපෘතියක කොටසක් විය හැකි වුවද, ඔබ සඳහන් කළ involute සහ cycloidal ගියර් කාණ්ඩ flat belt සහ pulley පද්ධතියෙන්ම වෙන්ව පවතී. ඒවා ඔබේ සැකසුමේ විවිධ කොටස් වල හෝ විවිධ පරීක්ෂණ/යෙදුම් සඳහා භාවිතා කරනු ඇති අතර, ඒ සෑම එකක්ම කලින් සාකච්ඡා කළ පරිදි ඒවායේ අනන්‍ය ලක්ෂණ ප්‍රයෝජනයට ගනී. උදාහරණයක් ලෙස, මෝටරයක් මගින් ගියර් කාණ්ඩයක් drive කළ හැකි අතර, එම ගියර් කාණ්ඩයේ output එක මගින් belt සහ pulley පද්ධතියක් drive කළ හැකිය, නැතහොත් ඒවා සම්පූර්ණයෙන්ම වෙනම යෙදුම් වල භාවිතා කළ හැකිය.">While both can be part of a larger machine or project to achieve different stages of power transmission or motion control, the involute and cycloidal gear sets you referred to are separate from the flat belt and pulley system itself. They would be used in different parts of your setup or for different experiments/applications, each leveraging their unique characteristics as previously discussed. For instance, a motor might drive a gear set, and the output of that gear set might then drive a belt and pulley system, or they might be used in entirely separate applications.</p>
+                    </div>
+                </section> <section class="content-section bg-light p-4 rounded mt-4">
+                     <h2 data-lang-en="Belt System in the Kit" data-lang-si="කට්ටලයේ ඇති Belt පද්ධතිය" class="mb-3 h4"><i class="fas fa-tools me-2"></i>Belt System in the Kit</h2>
+                     <p data-lang-en="In our pulley and belt system, we measure the initial tension of the belt as well as the tension during operation to monitor and evaluate the system's performance." data-lang-si="අපගේ පූලි සහ පටි පද්ධතිය තුළ, පටි ආරම්භක ආතතියත් මෙහෙයුම් කාලයේ දී ඇති ආතතියත් මනනය කර පද්ධතියේ කාර්ය සාධනය නිරීක්ෂණය කිරීම සහ අගය කිරීම සිදු කරයි.">In our pulley and belt system, we measure the initial tension of the belt as well as the tension during operation to monitor and evaluate the system's performance.</p>
+                      <img src="../images/pulley/22.jpg" alt="Kit Belt System" class="img-fluid rounded shadow-sm my-3 mx-auto d-block" style="max-width: 350px;">
+                </section>
+
+
+            </article> </div> </main>
+
+<footer>
+    <div class="container">
+        <p>
+            &copy; <span class="current-year"></span> <span data-lang-en="2025 Mechanism Demonstrator Project. All Rights Reserved." data-lang-si="2025 යාන්ත්‍රණ නිරූපණ ව්‍යාපෘතිය. සියලුම හිමිකම් ඇවිරිණි.">2025 Mechanism Demonstrator Project. All Rights Reserved.</span>
+        </p>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

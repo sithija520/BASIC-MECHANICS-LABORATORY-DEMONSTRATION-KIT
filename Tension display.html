@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-en="Real-time Tension Monitor" data-lang-si="Real-time ආතති නිරීක්ෂකය">Real-time Tension Monitor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-tachometer-alt me-2"></i>Real-time Tension Monitor</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <button id="lang-toggle-btn" class="btn btn-sm btn-outline-light" data-switch-to="si">සිංහල</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-5 mb-5">
+        <div class="content-section-inner-page">
+            <h1 data-lang-en="Real-time Tension Monitor" data-lang-si="Real-time ආතති නිරීක්ෂකය"><i class="fas fa-broadcast-tower me-2"></i>Real-time Tension Monitor</h1>
+            <hr class="mb-4">
+            
+            <p data-lang-en="Use the controls below to connect to the sensor and see the live tension value. Enter a target tension to get real-time feedback." data-lang-si="සංවේදකය හා සම්බන්ධ වීමට සහ සජීවී ආතති අගය බැලීමට පහත පාලක භාවිතා කරන්න. සජීවී ප්‍රතිචාර ලබා ගැනීමට ඉලක්ක ආතතියක් ඇතුළත් කරන්න.">Use the controls below to connect to the sensor and see the live tension value. Enter a target tension to get real-time feedback.</p>
+            
+            <div id="tension-display-card" class="card shadow-sm mb-4 text-center">
+                <div class="card-header fw-bold">Current Belt Tension</div>
+                <div class="card-body py-3">
+                    <h2 class="display-3 fw-bold" id="currentTensionValue">--- N</h2>
+                </div>
+                <div class="card-footer p-3">
+                    <div class="input-group">
+                        <span class="input-group-text">Target (N):</span>
+                        <input type="number" id="targetTensionInput" class="form-control" placeholder="e.g., 50">
+                    </div>
+                    <div id="tensionStatusMessage" class="form-text mt-2">Enter the required tension value.</div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Adjustment Calculator</h5>
+                </div>
+                <div class="card-body">
+                    <p class="small text-muted">Enter the belt properties and current values to estimate the required adjustment.</p>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="spanLength" class="form-label">Belt Span Length (mm)</label>
+                            <input type="number" class="form-control" id="spanLength" placeholder="e.g., 400">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="axialStiffness" class="form-label">Belt Axial Stiffness (EA) in N</label>
+                            <input type="number" class="form-control" id="axialStiffness" placeholder="e.g., 15000">
+                        </div>
+                    </div>
+                    <button id="calculateBtn" class="btn btn-secondary w-100 mt-3">Calculate Required Adjustment</button>
+                    <div class="mt-3 text-center bg-light p-2 rounded">
+                        <h6 class="mb-1">Required Center Distance Adjustment:</h6>
+                        <h4 id="adjustmentResult" class="fw-bold text-primary mb-0">-- mm</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-body text-center">
+                    <button id="startData" class="btn btn-success me-2"><i class="fas fa-play me-1"></i> Start/Connect</button>
+                    <button id="stopData" class="btn btn-warning"><i class="fas fa-stop me-1"></i> Stop/Disconnect</button>
+                    <div id="socketStatus" class="mt-2 small text-muted">Status: Not Connected</div>
+                </div>
+            </div>
+
+            <div class="accordion" id="methodAccordion">
+                </div>
+        </div>
+    </main>
+
+    <footer class="text-center mt-4 py-3 bg-light">
+       </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Element selections
+        const tensionValueDiv = document.getElementById('currentTensionValue');
+        const socketStatusDiv = document.getElementById('socketStatus');
+        const startButton = document.getElementById('startData');
+        const stopButton = document.getElementById('stopData');
+        const calculateBtn = document.getElementById('calculateBtn');
+
+        let socket;
+
+        // --- WebSocket Logic ---
+        function updateSocketStatus(message, isError = false) {
+            if (socketStatusDiv) {
+                socketStatusDiv.textContent = `Status: ${message}`;
+                socketStatusDiv.className = 'mt-2 small';
+                socketStatusDiv.classList.add(isError ? 'text-danger' : 'text-success');
+            }
+        }
+
+        if (startButton) {
+            startButton.addEventListener('click', function() {
+                if (socket && (socket.readyState === WebSocket.OPEN || socket.readyState === WebSocket.CONNECTING)) {
+                    updateSocketStatus('Already connected or connecting.');
+                    return;
+                }
+                const websocketUrl = 'ws://localhost:8080/';
+                updateSocketStatus('Connecting...');
+                socket = new WebSocket(websocketUrl);
+
+                socket.onopen = function(event) {
+                    updateSocketStatus('Connected');
+                };
+
+                socket.onmessage = function(event) {
+                    try {
+                        const data = JSON.parse(event.data);
+                        if (data.hasOwnProperty('tension')) {
+                            const tensionValue = parseFloat(data.tension);
+                            
+                            // Update the main digital display
+                            if (tensionValueDiv) {
+                                tensionValueDiv.textContent = tensionValue.toFixed(2) + ' N';
+                            }
+
+                            // Live feedback logic
+                            const targetTensionInput = document.getElementById('targetTensionInput');
+                            const targetTension = parseFloat(targetTensionInput.value);
+                            const tensionCard = document.getElementById('tension-display-card');
+                            const statusMessage = document.getElementById('tensionStatusMessage');
+
+                            if (tensionCard && statusMessage && !isNaN(targetTension) && targetTension > 0) {
+                                // Check if tension is within a small tolerance range (e.g., +/- 2%)
+                                if (tensionValue >= targetTension * 0.98 && tensionValue <= targetTension * 1.02) {
+                                    tensionCard.classList.add('is-correct');
+                                    statusMessage.textContent = "Correct Tension Achieved!";
+                                } else if (tensionValue < targetTension) {
+                                    tensionCard.classList.remove('is-correct');
+                                    statusMessage.textContent = "Tension is too low. Please tighten.";
+                                } else {
+                                    tensionCard.classList.remove('is-correct');
+                                    statusMessage.textContent = "Tension is too high. Please loosen.";
+                                }
+                            } else {
+                                tensionCard.classList.remove('is-correct');
+                                if (statusMessage) statusMessage.textContent = "Enter a valid target tension value.";
+                            }
+                        }
+                    } catch (e) {
+                        console.error("Error processing data:", e);
+                    }
+                };
+
+                socket.onerror = function(error) {
+                    updateSocketStatus('Connection Error!', true);
+                };
+
+                socket.onclose = function(event) {
+                    updateSocketStatus('Disconnected', true);
+                    if (tensionValueDiv) tensionValueDiv.textContent = '--- N';
+                    socket = null;
+                };
+            });
+        }
+
+        if (stopButton) {
+            stopButton.addEventListener('click', function() {
+                if (socket) {
+                    socket.close();
+                } else {
+                    updateSocketStatus('Not connected.', true);
+                }
+            });
+        }
+
+        // --- Adjustment Calculator Logic ---
+        if (calculateBtn) {
+            calculateBtn.addEventListener('click', function() {
+                const targetTension = parseFloat(document.getElementById('targetTensionInput').value);
+                const currentTensionText = document.getElementById('currentTensionValue').textContent;
+                const currentTension = parseFloat(currentTensionText);
+                const L = parseFloat(document.getElementById('spanLength').value);
+                const EA = parseFloat(document.getElementById('axialStiffness').value);
+                const resultDiv = document.getElementById('adjustmentResult');
+
+                if (isNaN(targetTension) || isNaN(currentTension) || isNaN(L) || isNaN(EA)) {
+                    resultDiv.textContent = "Please enter all values correctly.";
+                    return;
+                }
+                if (currentTension >= targetTension) {
+                    resultDiv.textContent = "Current tension is already at or above the target.";
+                    return;
+                }
+
+                const delta_T = targetTension - currentTension;
+                const delta_L = (delta_T * L) / EA;
+                const delta_C = delta_L / 2;
+
+                resultDiv.textContent = `~ ${delta_C.toFixed(3)} mm`;
+            });
+        }
+        
+        // (Other scripts like language toggle, etc. can go here)
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1229 @@
+/* css/style.css */
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+/* Define Color Palette using CSS Variables */
+:root {
+  --primary-color-rgb: 43, 62, 80; /* RGB for Dark Slate Blue */
+  --primary-color: #2B3E50;
+  --secondary-color: #f8f9fa; /* Very Light Gray/Off-white for default page backgrounds */
+  --accent-color-rgb: 24, 188, 156; /* RGB for Teal/Turquoise */
+  --accent-color: #18BC9C;
+  --light-accent-color: #66D1C1;
+  --text-color-dark: #333333; /* For light backgrounds */
+  --text-color-light: #f0f0f0; /* For dark/frosted backgrounds */
+  --light-text: #ffffff;
+  --subtle-border-color: rgba(255, 255, 255, 0.15);
+  --frosted-bg-navbar-footer: rgba(25, 35, 45, 0.75); /* Slightly more opaque for readability */
+  --frosted-bg-hero: rgba(30, 40, 50, 0.3);
+  --frosted-bg-card: rgba(35, 45, 55, 0.35);
+  --frosted-blur: 12px;
+  --border-radius-std: 0.75rem;
+  --box-shadow-std: 0 8px 28px rgba(0, 0, 0, 0.25);
+  --box-shadow-hover: 0 12px 35px rgba(0,0,0,0.35);
+}
+
+/* General Body Styles */
+body {
+  font-family: 'Lato', sans-serif;
+  color: var(--text-color-dark); /* Default text color for non-homepage pages */
+  line-height: 1.7;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 75px; /* Global padding for fixed navbar - Adjust if navbar height changes */
+  background-color: var(--secondary-color); /* Default background for all pages */
+  transition: background-color 0.5s ease;
+}
+
+main {
+  flex-grow: 1;
+}
+
+/* === Homepage Specific Background & Body Styles === */
+body.homepage-bg {
+    position: relative;
+    overflow-x: hidden;
+    color: var(--text-color-light); /* Homepage text is generally light */
+    background-color: #111827; /* Fallback */
+}
+
+body.homepage-bg::before { /* Background Image Layer */
+    content: "";
+    position: fixed;
+    left: 0; top: 0; width: 100%; height: 100%;
+    z-index: -2;
+    background-image: url('../images/general/wp2172560-mechanism-wallpapers.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    animation: kenburnsEffect 40s ease-in-out infinite alternate;
+}
+
+body.homepage-bg::after { /* Dark Overlay Layer for Homepage */
+    content: "";
+    position: fixed;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.75)); /* Gradient overlay */
+    z-index: -1;
+}
+
+@keyframes kenburnsEffect {
+    0% { transform: scale(1.0) translate(0, 0); opacity: 0.7; }
+    50% { transform: scale(1.1) translate(1%, -1%); opacity: 1; }
+    100% { transform: scale(1.0) translate(0, 0); opacity: 0.7; }
+}
+
+/* === Global Frosted Navbar Styling === */
+.navbar.navbar-frosted {
+    background-color: var(--frosted-bg-navbar-footer);
+    backdrop-filter: blur(var(--frosted-blur));
+    -webkit-backdrop-filter: blur(var(--frosted-blur));
+    border-bottom: 1px solid var(--subtle-border-color);
+    position: fixed;
+    width: 100%; top: 0; left: 0;
+    z-index: 1030;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15); /* Subtle shadow for depth */
+}
+
+.navbar-frosted .navbar-brand {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--light-text) !important;
+}
+
+.navbar-frosted .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    text-shadow: 0 0 4px rgba(0,0,0,0.5);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    font-weight: 400;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.navbar-frosted .navbar-nav .nav-link:hover,
+.navbar-frosted .navbar-nav .nav-link.active {
+    color: var(--light-text) !important;
+    text-shadow: 0 0 7px var(--accent-color);
+}
+
+.navbar-frosted .navbar-toggler {
+    border-color: rgba(255,255,255,0.3);
+}
+.navbar-frosted .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.navbar-frosted #lang-toggle-btn {
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--accent-color);
+    background-color: transparent;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.85rem;
+    margin-left: 0.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.navbar-frosted #lang-toggle-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border-color: var(--accent-color);
+    text-shadow: none;
+}
+
+/* General Headings for non-homepage pages (and fallback) */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+}
+.container h1:first-of-type { /* Style for main page titles */
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+
+/* === Homepage Content Styling === */
+/* Hero Section */
+body.homepage-bg .hero-section-frosted {
+    background-color: var(--frosted-bg-hero);
+    backdrop-filter: blur(var(--frosted-blur));
+    -webkit-backdrop-filter: blur(var(--frosted-blur));
+    border: 1px solid var(--subtle-border-color);
+    border-radius: var(--border-radius-std);
+    padding: 4rem 2rem;
+    margin-top: 2rem;
+    margin-bottom: 3.5rem;
+    color: var(--light-text);
+    box-shadow: var(--box-shadow-std);
+}
+
+body.homepage-bg .hero-section-frosted h1 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem); /* Responsive font size */
+    font-weight: 900;
+    background: linear-gradient(45deg, var(--light-text), var(--accent-color) 50%, var(--light-accent-color));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; text-fill-color: transparent;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.2rem;
+    border-bottom: none;
+}
+
+body.homepage-bg .hero-section-frosted p.lead {
+    color: #e8e8e8;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+body.homepage-bg .hero-section-frosted .btn {
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.btn-primary .fa-tools { /* Start Assembly button icon animation */
+  transition: transform 0.4s ease-in-out; display: inline-block;
+}
+.btn-primary:hover .fa-tools { transform: rotate(360deg); }
+
+/* Frosted Cards on Homepage */
+body.homepage-bg .card.frosted-card {
+    background-color: var(--frosted-bg-card);
+    backdrop-filter: blur(var(--frosted-blur));
+    -webkit-backdrop-filter: blur(var(--frosted-blur));
+    border: 1px solid var(--subtle-border-color);
+    color: var(--text-color-light);
+    box-shadow: var(--box-shadow-std);
+    border-radius: var(--border-radius-std);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    overflow: hidden;
+    display: flex; /* For flex properties on card children */
+    flex-direction: column;
+}
+body.homepage-bg .card.frosted-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: var(--box-shadow-hover);
+}
+body.homepage-bg .card.frosted-card .card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Make card body take up space */
+}
+body.homepage-bg .card.frosted-card .card-title {
+    color: var(--light-text);
+    font-weight: 700;
+    margin-top: 0.5rem;
+}
+body.homepage-bg .card.frosted-card .card-text {
+    color: #d8d8d8;
+    font-size: 0.95rem;
+    flex-grow: 1; /* Push button to bottom */
+}
+body.homepage-bg .card.frosted-card .btn-outline-primary {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background-color: rgba(var(--accent-color-rgb), 0.15);
+    font-weight: 700;
+    border-radius: 50px;
+    padding: 0.6rem 1.3rem;
+    margin-top: auto; /* Push button to bottom */
+}
+body.homepage-bg .card.frosted-card .btn-outline-primary:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border-color: var(--accent-color);
+}
+body.homepage-bg .card.frosted-card .icon-large {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    font-size: 3rem;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55), color 0.3s ease;
+    padding-top: 1rem;
+}
+body.homepage-bg .card.frosted-card:hover .icon-large {
+    transform: scale(1.2) rotate(-10deg);
+    color: var(--light-accent-color);
+}
+
+/* Card Entrance Animation */
+@keyframes fadeInUpStaggered {
+    from { opacity: 0; transform: translateY(60px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-card-on-load {
+    opacity: 0;
+    animation: fadeInUpStaggered 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation-delay: var(--card-animation-delay, 0s);
+}
+
+/* General Button Hover Enhancements */
+body.homepage-bg .hero-section-frosted .btn,
+body.homepage-bg .card.frosted-card .btn {
+    transition: transform 0.25s ease-out, box-shadow 0.25s ease-out, background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+body.homepage-bg .hero-section-frosted .btn:hover,
+body.homepage-bg .card.frosted-card .btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Global Footer Styling (Frosted to match navbar) */
+footer {
+    background-color: var(--frosted-bg-navbar-footer);
+    backdrop-filter: blur(var(--frosted-blur));
+    -webkit-backdrop-filter: blur(var(--frosted-blur));
+    color: rgba(255, 255, 255, 0.75);
+    border-top: 1px solid var(--subtle-border-color);
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    position: relative; /* Ensures it's above homepage ::after pseudo-element */
+    z-index: 0; /* Or higher if needed */
+}
+/* On non-homepage pages, footer text might need to be darker if body bg is light */
+body:not(.homepage-bg) footer {
+    color: var(--text-color-dark); /* Or a specific dark color */
+    background-color: #e9ecef; /* Example: Bootstrap's light gray for footer on other pages */
+    backdrop-filter: none; /* No blur on other pages if desired */
+    border-top: 1px solid #dee2e6;
+}
+
+
+/* General Modal Styling (dark frosted theme) */
+.modal-content {
+    background-color: rgba(var(--primary-color-rgb), 0.92); /* Dark, slightly transparent modal */
+    backdrop-filter: blur(8px); /* Slightly less blur than navbar for content readability */
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--text-color-light);
+    border: 1px solid var(--subtle-border-color);
+    border-radius: var(--border-radius-std);
+}
+.modal-header {
+    border-bottom: 1px solid var(--subtle-border-color);
+    padding: 1rem 1.5rem;
+}
+.modal-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+.modal-title {
+    color: var(--light-text);
+    font-weight: 700;
+}
+.modal-body {
+    padding: 1.5rem;
+}
+.modal-body .card { /* Cards inside modal, like About Us team section */
+    background-color: rgba(var(--primary-color-rgb), 0.9); /* Slightly different from page cards */
+    border-color: var(--subtle-border-color);
+    margin-bottom: 1rem;
+}
+.modal-body .card .card-title,
+.modal-body .card .card-text {
+    color: var(--text-color-light);
+}
+.modal-body .bg-light { /* Sections with bg-light inside modal */
+    background-color: rgba(var(--primary-color-rgb), 0.7) !important;
+}
+.modal-footer {
+    border-top: 1px solid var(--subtle-border-color);
+    padding: 1rem 1.5rem;
+}
+
+/* Specific styling for CAM chart modal */
+#camGraphModal .modal-content {
+     background-color: rgba(var(--primary-color-rgb), 0.97); /* Darker for chart readability */
+}
+#camGraphModal .modal-body p,
+#camGraphModal .modal-body h3,
+#camGraphModal #socketStatus {
+    color: var(--text-color-light);
+}
+#camGraphModal .modal-body button { /* Buttons inside CAM chart modal */
+    color: var(--light-text); /* Ensure button text is visible if using default BS button classes */
+}
+
+/* Responsive video inside modal */
+.modal-body video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.25rem; /* Slight rounding */
+}
+
+/* Language toggle text transition */
+h1[data-lang-en], h2[data-lang-en], h3[data-lang-en],
+p[data-lang-en], span[data-lang-en], a[data-lang-en],
+button[data-lang-en], label[data-lang-en],
+li[data-lang-en], strong[data-lang-en], title[data-lang-en] {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Accordion styling for assembly page (example) */
+.accordion-button {
+    font-weight: 600;
+}
+.accordion-button:not(.collapsed) {
+    background-color: var(--light-accent-color);
+    color: var(--primary-color);
+}
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(var(--accent-color-rgb), 0.5);
+}
+
+/* Ensure list groups in cards (like in gears.html for key functions) are styled well */
+.card .list-group-item {
+    background-color: transparent; /* Make list group items transparent if on frosted card */
+    border-color: var(--subtle-border-color); /* Match card's subtle border */
+    color: var(--text-color-light); /* Ensure text is light */
+}
+body:not(.homepage-bg) .card .list-group-item { /* For cards on other pages */
+    background-color: #fff; /* Default list group item bg */
+    border-color: rgba(0,0,0,.125);
+    color: var(--text-color-dark);
+}
+
+/* General styles for content pages (non-homepage) */
+body:not(.homepage-bg) .content-section {
+    padding: 2rem 0;
+}
+body:not(.homepage-bg) .content-section.bg-light {
+    background-color: #f8f9fa !important; /* Bootstrap's light */
+    padding: 2rem;
+}
+body:not(.homepage-bg) .card {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-en="Gears & Pinions | Mechanism Kit" data-lang-si="Gears & Pinions | Mechanism Kit">Gears & Pinions | Mechanism Kit</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+     <link rel="stylesheet" href="../css/style.css"> </head>
+<body class="homepage-bg"> <nav class="navbar navbar-expand-lg navbar-dark navbar-frosted">
+      </nav>
+
+    <main class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3">
+                <h4 data-lang-en="Mechanisms Nav" data-lang-si="යාන්ත්‍රණ" class="mb-3"><i class="fas fa-list-ul me-2"></i><span data-lang-en="Select Mechanism" data-lang-si="යාන්ත්‍රණය තෝරන්න">Select Mechanism</span></h4>
+                <div class="list-group mechanism-nav-sidebar">
+                    <a href="gears.html" class="list-group-item list-group-item-action active" aria-current="true">
+                        <i class="fas fa-cog"></i><span data-lang-en="Gears & Pinions" data-lang-si="Gears & Pinions">Gears & Pinions</span>
+                    </a>
+                    <a href="gear-trains.html" class="list-group-item list-group-item-action">
+                        <i class="fas fa-sitemap"></i><span data-lang-en="Gear Trains" data-lang-si="Gear Trains">Gear Trains</span>
+                    </a>
+                    <a href="belts.html" class="list-group-item list-group-item-action">
+                        <i class="fas fa-link"></i><span data-lang-en="Belts & Pulleys" data-lang-si="Belts & Pulleys">Belts & Pulleys</span>
+                    </a>
+                    <a href="cams.html" class="list-group-item list-group-item-action">
+                        <i class="fas fa-drafting-compass"></i><span data-lang-en="CAM Mechanisms" data-lang-si="CAM Mechanisms">CAM Mechanisms</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-9 mechanism-content">
+                <h1 data-lang-en="Gears & Pinions" data-lang-si="Gears & Pinions"><i class="fas fa-cog me-2"></i>Gears & Pinions</h1>
+                <hr class="mb-4">
+
+                <section class="content-section">
+                    <h2 data-lang-en="Gears, Pinions, and Tooth Profiles: A Technical Overview" data-lang-si="Gears, Pinions, සහ දත් පැතිකඩ: තාක්ෂණික දළ විශ්ලේෂණයක්" class="mb-3"><i class="fas fa-book-open me-1"></i>Gears, Pinions, and Tooth Profiles: A Technical Overview</h2>
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-light">
+                            <h3 class="h5 mb-0" data-lang-en="Gears and Pinions" data-lang-si="Gears සහ Pinions">Gears and Pinions</h3>
+                        </div>
+                        <div class="card-body">
+                            <p data-lang-en="Gears are toothed mechanical elements used to transmit power and motion between rotating shafts. When two gears of different sizes are in mesh, the smaller gear is termed the 'pinion,' and the larger is the 'gear' or 'wheel.'" data-lang-si="[මෙම කොටස සඳහා සිංහල විස්තරය]">Gears are toothed mechanical elements used to transmit power and motion between rotating shafts. When two gears of different sizes are in mesh, the smaller gear is termed the "pinion," and the larger is the "gear" or "wheel."</p>
+                            
+                            <h4 class="mt-3 h6 text-muted" data-lang-en="Key Functions:" data-lang-si="ප්‍රධාන කාර්යයන්:">Key Functions:</h4>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" data-lang-en="<strong>Velocity Ratio Modification:</strong> Gears alter the angular velocity and torque between the input and output shafts. The gear ratio (ratio of teeth on the gear to teeth on the pinion) determines the change in speed and torque." data-lang-si="[මෙම කොටස සඳහා සිංහල විස්තරය]" data-html-content="true"><strong>Velocity Ratio Modification:</strong> Gears alter the angular velocity and torque between the input and output shafts. The gear ratio (ratio of teeth on the gear to teeth on the pinion) determines the change in speed and torque.</li>
+                                <li class="list-group-item" data-lang-en="<strong>Direction of Rotation Change:</strong> External gears in mesh rotate in opposite directions. Internal gears allow for rotation in the same direction." data-lang-si="[මෙම කොටස සඳහා සිංහල විස්තරය]" data-html-content="true"><strong>Direction of Rotation Change:</strong> External gears in mesh rotate in opposite directions. Internal gears allow for rotation in the same direction.</li>
+                                <li class="list-group-item" data-lang-en="<strong>Power Transmission:</strong> Efficiently transmit mechanical power, often with high precision." data-lang-si="[මෙම කොටස සඳහා සිංහල විස්තරය]" data-html-content="true"><strong>Power Transmission:</strong> Efficiently transmit mechanical power, often with high precision.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    </section>
+            </div>
+        </div> </main>
+
+    <footer>
+        </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script> </body>
+</html>
+
+/* css/style.css */
+
+/* ... (Your existing :root, general body, homepage-bg styles, kenburnsEffect, navbar-frosted, global footer styles as provided in the COMPLETE CSS previously) ... */
+
+/* === Styles for Inner Pages (like mechanisms/gears.html) === */
+
+/* Ensure body padding for fixed navbar is applied (already in general body style) */
+/* body { padding-top: 75px; } */
+
+/* Sidebar Navigation for Mechanism Pages */
+.mechanism-nav-sidebar .list-group-item {
+    background-color: rgba(255, 255, 255, 0.7); /* Lighter for light page backgrounds */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--text-color-dark); /* Dark text for readability */
+    margin-bottom: 8px; /* Increased spacing */
+    border-radius: var(--border-radius-std);
+    font-weight: 600; /* Slightly bolder text */
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.mechanism-nav-sidebar .list-group-item:hover {
+    background-color: var(--accent-color);
+    color: var(--light-text) !important; /* Ensure text is light on accent hover */
+    border-color: var(--accent-color);
+    transform: translateX(5px); /* Slight move on hover */
+    box-shadow: 0 4px 8px rgba(var(--accent-color-rgb), 0.3);
+}
+
+.mechanism-nav-sidebar .list-group-item.active {
+    background-color: var(--accent-color);
+    color: var(--light-text) !important; /* Ensure text is light for active item */
+    border-color: var(--accent-color);
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(var(--accent-color-rgb), 0.4);
+}
+
+.mechanism-nav-sidebar .list-group-item i.fa-fw { /* Ensure icons are fixed-width */
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Main Content Area on Mechanism Pages */
+.mechanism-content {
+    padding-left: 25px; /* Space from sidebar */
+}
+
+@media (max-width: 767px) { /* On smaller screens, stack them and adjust sidebar */
+    .mechanism-nav-sidebar {
+        margin-bottom: 2.5rem;
+    }
+    .mechanism-nav-sidebar .list-group-item {
+        margin-bottom: 5px; /* Reduce margin for stacked view */
+        text-align: center; /* Center text for better look when stacked */
+    }
+    .mechanism-nav-sidebar .list-group-item i.fa-fw {
+        margin-right: 8px; /* Adjust icon spacing */
+    }
+    .mechanism-content {
+        padding-left: 0;
+    }
+}
+
+/* Styling for Cards within .mechanism-content (non-homepage cards) */
+.mechanism-content .card {
+    background-color: #ffffff; /* Clean white background for cards */
+    border: 1px solid #e0e0e0; /* Softer border */
+    border-radius: var(--border-radius-std);
+    margin-bottom: 2rem; /* Consistent spacing */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Softer shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mechanism-content .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.mechanism-content .card .card-header {
+    background-color: var(--secondary-color); /* Light gray header */
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 700;
+    color: var(--primary-color);
+    padding: 0.75rem 1.25rem;
+}
+/* Custom styled card header like in the user's screenshot for Gears page */
+.mechanism-content .card-header.bg-light-accent { /* New class for specific header style */
+    background-color: #e0f2f1; /* A very light teal/accent, adjust as needed */
+    color: var(--primary-color); /* Ensure dark text for readability */
+}
+
+
+.mechanism-content .card .card-body {
+    padding: 1.5rem; /* Good padding inside card */
+}
+
+.mechanism-content .card .card-body h1, /* If h1 is used inside card body */
+.mechanism-content .card .card-body h2,
+.mechanism-content .card .card-body h3,
+.mechanism-content .card .card-body h4,
+.mechanism-content .card .card-body h5,
+.mechanism-content .card .card-body h6 {
+    color: var(--primary-color); /* Ensure heading colors are consistent */
+}
+
+.mechanism-content .card .list-group-item {
+    background-color: transparent; /* Make list items within cards transparent to card bg */
+    border-color: #e0e0e0; /* Match card border */
+    color: var(--text-color-dark);
+    padding-left: 0; /* Align with card body text if no bullets desired */
+    padding-right: 0;
+}
+.mechanism-content .card .list-group-flush > .list-group-item:last-child {
+    border-bottom-width: 0; /* Remove bottom border for last flush item */
+}
+
+.mechanism-content .list-unstyled .list-unstyled { /* For nested lists if any */
+    padding-left: 1.5rem;
+}
+.mechanism-content .list-unstyled li {
+    margin-bottom: 0.5rem; /* Spacing for list items */
+}
+
+/* Specific adjustments for advantages/disadvantages lists */
+.mechanism-content .text-success {
+    color: var(--accent-color) !important; /* Use accent for positive points */
+}
+.mechanism-content .text-danger {
+    color: #dc3545 !important; /* Standard danger color */
+}
+.mechanism-content ul.list-unstyled.ps-3 li { /* ps-3 adds padding for lists */
+    position: relative; /* For custom bullet styling if needed */
+}
+.mechanism-content ul.list-unstyled.ps-3 li i.fa-fw { /* Icons as bullets */
+    position: absolute;
+    left: -1.5rem; /* Align icon before the text */
+    top: 0.25em; /* Vertical alignment */
+}
+
+
+/* Make sure footer on non-homepage pages has readable text */
+body:not(.homepage-bg) footer {
+    background-color: #343a40; /* Darker footer for non-homepage pages */
+    color: rgba(255, 255, 255, 0.7);
+    border-top: 1px solid #495057;
+    backdrop-filter: none; /* No blur if not desired for non-homepage footer */
+}
+body:not(.homepage-bg) footer a {
+    color: var(--accent-color);
+}
+body:not(.homepage-bg) footer a:hover {
+    color: var(--light-accent-color);
+}
+
+
+/* General page title styling (already in global styles, ensure it works well) */
+.container > h1:first-child {
+    /* ... existing styles ... */
+    /* color: var(--primary-color); /* Already set */
+}
+/* css/style.css */
+
+/* ... (Your existing :root, general body, homepage-bg styles, kenburnsEffect, navbar-frosted, global footer styles as provided in the COMPLETE CSS previously) ... */
+
+/* === Global Styling for Content Sections on Inner Pages === */
+.content-section-inner-page {
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white for readability on default bg */
+    padding: 2rem;
+    border-radius: var(--border-radius-std);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+/* If homepage-bg is applied to inner pages, this frosted look will be used */
+body.homepage-bg .content-section-inner-page {
+    background-color: var(--frosted-bg-card); /* Use a frosted background like homepage cards */
+    backdrop-filter: blur(var(--frosted-blur));
+    -webkit-backdrop-filter: blur(var(--frosted-blur));
+    border: 1px solid var(--subtle-border-color);
+    color: var(--text-color-light);
+    box-shadow: var(--box-shadow-std);
+}
+
+body.homepage-bg .content-section-inner-page h1,
+body.homepage-bg .content-section-inner-page h2,
+body.homepage-bg .content-section-inner-page h3,
+body.homepage-bg .content-section-inner-page h4,
+body.homepage-bg .content-section-inner-page p,
+body.homepage-bg .content-section-inner-page li {
+    color: var(--text-color-light); /* Ensure text is light on frosted background */
+}
+body.homepage-bg .content-section-inner-page .card { /* Cards inside a frosted section on homepage-bg */
+    background-color: rgba(var(--primary-color-rgb), 0.3); /* Darker, more transparent cards */
+    border-color: rgba(255,255,255,0.2);
+}
+body.homepage-bg .content-section-inner-page .card .card-header {
+    background-color: rgba(var(--primary-color-rgb), 0.4);
+    border-bottom-color: rgba(255,255,255,0.2);
+}
+
+
+/* Sidebar Navigation for Mechanism Pages */
+.mechanism-nav-sidebar .list-group-item {
+    background-color: rgba(255, 255, 255, 0.85); /* Lighter for light page backgrounds */
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: var(--text-color-dark);
+    margin-bottom: 8px;
+    border-radius: var(--border-radius-std);
+    font-weight: 600;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.07);
+}
+body.homepage-bg .mechanism-nav-sidebar .list-group-item { /* Sidebar on homepage-bg */
+    background-color: var(--frosted-bg-card);
+    border: 1px solid var(--subtle-border-color);
+    color: var(--text-color-light);
+}
+
+
+.mechanism-nav-sidebar .list-group-item:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color) !important;
+    border-color: var(--accent-color);
+    transform: translateX(5px);
+    box-shadow: 0 4px 10px rgba(var(--accent-color-rgb), 0.3);
+}
+body.homepage-bg .mechanism-nav-sidebar .list-group-item:hover {
+    color: var(--primary-color) !important; /* Ensure dark text on accent hover */
+}
+
+
+.mechanism-nav-sidebar .list-group-item.active {
+    background-color: var(--accent-color);
+    color: var(--primary-color) !important;
+    border-color: var(--accent-color);
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(var(--accent-color-rgb), 0.4);
+}
+body.homepage-bg .mechanism-nav-sidebar .list-group-item.active {
+     color: var(--primary-color) !important;
+}
+
+
+.mechanism-nav-sidebar .list-group-item i.fa-fw {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Main Content Area on Mechanism Pages */
+.mechanism-content {
+    /* padding-left: 25px; /* Already there */
+}
+/* Apply frosted look to the mechanism content area if body has homepage-bg */
+body.homepage-bg .mechanism-content > section.content-section,
+body.homepage-bg .mechanism-content > .card { /* If content is directly in cards */
+    background-color: var(--frosted-bg-card) !important; /* Important to override specific card bg */
+    backdrop-filter: blur(var(--frosted-blur)) !important;
+    -webkit-backdrop-filter: blur(var(--frosted-blur)) !important;
+    border: 1px solid var(--subtle-border-color) !important;
+    color: var(--text-color-light) !important;
+    box-shadow: var(--box-shadow-std) !important;
+    border-radius: var(--border-radius-std);
+    padding: 1.5rem; /* Add padding to the section/card itself */
+    margin-bottom: 2rem;
+}
+body.homepage-bg .mechanism-content h1,
+body.homepage-bg .mechanism-content h2,
+body.homepage-bg .mechanism-content h3,
+body.homepage-bg .mechanism-content h4,
+body.homepage-bg .mechanism-content p,
+body.homepage-bg .mechanism-content li {
+    color: var(--text-color-light) !important;
+}
+
+/* Cards within .mechanism-content (non-homepage cards, or if not using homepage-bg on mech pages) */
+body:not(.homepage-bg) .mechanism-content .card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius-std);
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+body:not(.homepage-bg) .mechanism-content .card .card-header {
+    background-color: var(--secondary-color);
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+body:not(.homepage-bg) .mechanism-content .card .list-group-item {
+    background-color: transparent;
+    border-color: #e0e0e0;
+    color: var(--text-color-dark);
+}
+
+/* Ensure footer on non-homepage pages has readable text */
+body:not(.homepage-bg) footer {
+    background-color: #343a40;
+    color: rgba(255, 255, 255, 0.7);
+    border-top: 1px solid #495057;
+    backdrop-filter: none;
+}
+
+/* General page title styling for inner pages */
+body:not(.homepage-bg) .container > h1:first-child {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 0.6rem;
+    display: inline-block;
+    margin-bottom: 2rem; /* More space after main title */
+}
+
+/* Main title styling for mechanism pages if homepage-bg is applied */
+body.homepage-bg .mechanism-content > h1:first-child {
+    color: var(--light-text);
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 0.6rem;
+    display: inline-block;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+/* css/style.css */
+
+/* ... (Your existing styles) ... */
+
+/* Global Styling for Content Sections on Inner Pages */
+.content-section-inner-page {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: var(--border-radius-std);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    /* === ADD THESE LINES TO CENTER THE CONTENT BLOCK === */
+    max-width: 900px; /* Adjust as needed, or use a percentage like 80% */
+    margin-left: auto;
+    margin-right: auto;
+    /* === END OF ADDED LINES === */
+}
+
+/* If homepage-bg is applied to inner pages, this frosted look will be used */
+body.homepage-bg .content-section-inner-page {
+    background-color: var(--frosted-bg-card);
+    backdrop-filter: blur(var(--frosted-blur));
+    -webkit-backdrop-filter: blur(var(--frosted-blur));
+    border: 1px solid var(--subtle-border-color);
+    color: var(--text-color-light);
+    box-shadow: var(--box-shadow-std);
+    /* max-width and margin:auto will still apply from the rule above */
+}
+
+/* ... (Rest of your CSS) ... */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* css/style.css */
+
+/* ... (Your existing styles) ... */
+
+/* About Us Page - Team Member Card Enhancements */
+.team-member-card {
+    background-color: rgba(var(--primary-color-rgb), 0.1); /* Subtle dark frosted tint */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid var(--subtle-border-color);
+    border-radius: var(--border-radius-std);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* To ensure image corners are rounded with card */
+}
+
+/* If the page body does NOT have homepage-bg, use a lighter card style */
+body:not(.homepage-bg) .team-member-card {
+    background-color: #ffffff; /* White background for cards on light pages */
+    border: 1px solid #e0e0e0; /* Softer border */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+body:not(.homepage-bg) .team-member-card .card-title,
+body:not(.homepage-bg) .team-member-card .card-text {
+    color: var(--text-color-dark);
+}
+body:not(.homepage-bg) .team-member-card .text-muted {
+    color: #6c757d !important; /* Bootstrap's default muted color */
+}
+
+
+body.homepage-bg .team-member-card { /* Styles if homepage-bg is on body */
+    color: var(--text-color-light);
+}
+body.homepage-bg .team-member-card .card-title {
+    color: var(--light-text);
+}
+body.homepage-bg .team-member-card .text-muted {
+    color: rgba(255,255,255,0.7) !important;
+}
+
+
+.team-member-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.team-member-card .card-img-top-wrapper {
+    height: 220px; /* Adjust as needed */
+    overflow: hidden;
+    background-color: #e9ecef; /* Placeholder background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-member-card .card-img-top-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the area, might crop */
+}
+.team-member-card .card-img-top-wrapper .fa-user-circle { /* Placeholder icon */
+    font-size: 5rem;
+    color: #adb5bd;
+}
+
+
+.team-member-card .card-body {
+    text-align: center;
+}
+
+.team-member-card .card-title {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.team-member-card .member-role {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+/* Supervision Section Styling */
+.supervision-section .list-group-item {
+    background-color: transparent;
+    border-color: rgba(var(--primary-color-rgb), 0.2);
+    padding: 0.75rem 1.25rem;
+}
+
+body:not(.homepage-bg) .supervision-section .list-group-item {
+    background-color: #fff;
+    border-color: #e0e0e0;
+    color: var(--text-color-dark);
+}
+body:not(.homepage-bg) .supervision-section .list-group-item strong {
+    color: var(--primary-color);
+}
+
+
+body.homepage-bg .supervision-section .list-group-item {
+    color: var(--text-color-light);
+    border-color: var(--subtle-border-color);
+}
+body.homepage-bg .supervision-section .list-group-item strong {
+    color: var(--light-accent-color);
+}
+
+.supervision-section .list-group-item i {
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+/* =================================
+   Preloader Styles
+   ================================= */
+#preloader {
+    position: fixed; /* පිටුව පුරා රැඳී සිටීමට */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 16, 45, 0.85); /* ඔබගේ වෙබ් අඩවියේ තද පැහැයට සමාන, විනිවිද පෙනෙන background එකක් */
+    backdrop-filter: blur(5px); /* පසුබිම blur කිරීමට (modern look) */
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 9999; /* සෑමදේටම වඩා උඩින් පෙන්වීමට */
+    
+    /* Default ලෙස සඟවා තැබීමට */
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+/* Preloader එක පෙන්වන විට */
+#preloader.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Icon එක සඳහා Styles */
+.loader-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem; /* Icon එකේ ප්‍රමාණය */
+    color: #64ffda;  /* ඔබගේ වෙබ් අඩවියේ เขียว-ฟ้า පැහැය */
+    text-shadow: 0 0 20px rgba(100, 255, 218, 0.5); /* Glowing effect */
+}
+
+/* Icon එකට animation එකක් යෙදීම */
+.loader-icon i {
+    animation: spin-and-pulse 1s infinite linear;
+}
+
+@keyframes spin-and-pulse {
+    0% {
+        transform: scale(0.5) rotate(0deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(2) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.5) rotate(360deg);
+        opacity: 0.8;
+    }
+}
+
+/* === New Gold Text Animation (Gradient Shine) === */
+.animated-gold-text {
+  /* Creating a gradient background for the text */
+  background: linear-gradient(to right, #c0a062, #ffd700, #c0a062, #ffd700, #c0a062);
+  background-size: 200% auto;
+  
+  /* Clipping the background to the text shape */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  /* The animation that moves the gradient */
+  animation: gold-gradient-shine 4s linear infinite;
+}
+
+@keyframes gold-gradient-shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+
+
+
+
+/* ==========================================================
+   Styles for 3D Model Viewer Modal (Final Polished Version)
+   ========================================================== */
+
+/* Modal එකේ ප්‍රධාන කොටස සඳහා */
+.model-viewer-content {
+    background-color: #0a192f;
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    border-radius: 1rem;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.modal-body {
+    flex-grow: 1;
+}
+
+/* Model එක පෙන්වන ප්‍රධාන කොටස සඳහා */
+.model-viewer-container {
+    height: 100%;
+    position: relative;
+}
+
+/* Default සහ Split viewer දෙකටම පොදු styles */
+#main-model-viewer, .split-viewer {
+    width: 100%;
+    height: 100%;
+    min-height: 60vh;
+    border-radius: 0.5rem;
+    background-color: transparent; /* Make it transparent */
+    --mv-background-color: transparent; /* To see the container bg */
+}
+
+/* Split view එකේ viewers සඳහා විශේෂ styles */
+#split-viewer-wrapper .col-6 {
+    position: relative;
+}
+.split-viewer {
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+
+/* පහළින් ඇති Model තෝරන Bar එක සඳහා */
+.model-selection-bar {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+/* Bar එකේ ඇති බොත්තම් සඳහා */
+.model-selection-bar .btn {
+    color: #ccd6f6;
+    border-color: #555;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out; /* Smooth transition */
+}
+
+/* Bar එකේ බොත්තමක් මත mouse එක ගෙනගිය විට */
+.model-selection-bar .btn:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+    color: #64ffda;
+    border-color: #64ffda;
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* තෝරාගත් (Active) බොත්තම සඳහා */
+.model-selection-bar .btn.active {
+    background-color: #64ffda;
+    color: #0a192f;
+    border-color: #64ffda;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+}
+
+/* Styles for the new In-Modal Loader */
+.model-viewer-container {
+    position: relative; /* This is crucial for positioning the overlay */
+}
+
+.modal-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 25, 47, 0.85); /* Dark background matching the theme */
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* Animation fade effect */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    border-radius: 0.5rem;
+}
+
+/* This class will be added by JavaScript to show the loader */
+.modal-loader.is-loading {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =========================================
+   SVG Self-Drawing Heading Animation
+   ========================================= */
+
+#drawing-heading {
+    width: 100%;
+    max-width: 950px;
+    margin-bottom: 1.5rem; /* Added more space below */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#drawing-heading text {
+    font-family: 'Montserrat', sans-serif; /* You can change this font */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    stroke: #64ffda; /* Drawing line color */
+    stroke-width: 0.5px;
+    fill: transparent;
+
+    /* The core of the animation */
+    stroke-dasharray: 1500; 
+    stroke-dashoffset: 1500;
+
+    /* Applying the animation */
+    animation: draw-line 5s ease-out forwards;
+}
+
+#drawing-heading text:nth-of-type(2) {
+    font-size: 2.8rem;
+    animation-delay: 2s; /* Start drawing the second line 1s later */
+}
+
+#drawing-heading text:nth-of-type(1) {
+    font-size: 3rem;
+}
+
+
+/* Keyframes for the drawing animation */
+@keyframes draw-line {
+    to {
+        stroke-dashoffset: 0; /* Completes the drawing */
+        fill: #ffffff; /* Fills the text with white color after drawing */
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Adds a glow */
+    }
+}
+
+
+
+
+#tension-display-card.is-correct {
+    background-color: #d1e7dd !important; 
+    border-color: #a3cfbb;
+}
+#tension-display-card.is-correct #currentTensionValue {
+    color: #0f5132 !important; 
+}
+
+
+
+
+
+
+
+/* download section
+
+/* Download Page Card Styles */
+.download-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.download-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.download-card .card-body {
+    color: #e6f1ff;
+}
+
+.download-card .card-footer {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}

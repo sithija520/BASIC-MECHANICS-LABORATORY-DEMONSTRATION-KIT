@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-en="Setup Instructions | Mechanism Kit" data-lang-si="සැකසුම් උපදෙස් | Mechanism Kit">Setup Instructions | Mechanism Kit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-frosted">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><i class="fas fa-cogs me-2"></i>Mechanism Kit</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" data-lang-en="Home" data-lang-si="මුල් පිටුව">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="assembly.html" data-lang-en="Assembly" data-lang-si="එකලස් කිරීම">Assembly</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMechanisms" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-lang-en="Mechanisms" data-lang-si="යාන්ත්‍රණ">
+                Mechanisms
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMechanisms">
+                 <li><a class="dropdown-item" href="mechanisms/gears.html" data-lang-en="Gears & Pinions" data-lang-si="Gears & Pinions">Gears & Pinions</a></li>
+                 <li><a class="dropdown-item" href="mechanisms/gear-trains.html" data-lang-en="Gear Trains" data-lang-si="Gear Trains">Gear Trains</a></li>
+                 <li><a class="dropdown-item" href="mechanisms/belts.html" data-lang-en="Belts & Pulleys" data-lang-si="Belts & Pulleys">Belts & Pulleys</a></li>
+                 <li><a class="dropdown-item" href="mechanisms/cams.html" data-lang-en="CAM Mechanisms" data-lang-si="CAM Mechanisms">CAM Mechanisms</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="experiments.html" data-lang-en="Experiments" data-lang-si="පරීක්ෂණ">Experiments</a>
+            </li>
+            <li class="nav-item">
+                 <a class="nav-link" href="about.html" data-lang-en="About Us" data-lang-si="අපි ගැන">About Us</a>
+            </li>
+             <li class="nav-item">
+                 <button id="lang-toggle-btn" class="btn btn-sm btn-outline-light" data-switch-to="si">සිංහල</button>
+             </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container mt-5 mb-5">
+        <h1 data-lang-en="Software & Hardware Setup Instructions" data-lang-si="මෘදුකාංග සහ දෘඪාංග සැකසුම් උපදෙස්"><i class="fas fa-tools me-2"></i>Software & Hardware Setup Instructions</h1>
+        <p class="lead" data-lang-en="Follow these instructions to set up the connection between your Arduino and the web interface, and to interface with various sensors and actuators." data-lang-si="ඔබගේ Arduino සහ වෙබ් අතුරුමුහුණත අතර සම්බන්ධතාවය සැකසීමට, සහ විවිධ සංවේදක සහ ක්‍රියාකාරක සමඟ අතුරුමුහුණත් කිරීමට මෙම උපදෙස් අනුගමනය කරන්න.">Follow these instructions to set up the connection between your Arduino and the web interface, and to interface with various sensors and actuators.</p>
+        
+        <section class="content-section-inner-page mt-5">
+            <h2 data-lang-en="Setting Up the Real-Time Data Connection" data-lang-si="තථ්‍ය කාලීන දත්ත සම්බන්ධතාවය සැකසීම" class="mb-3"><i class="fas fa-project-diagram me-2"></i>Setting Up the Real-Time Data Connection</h2>
+            <p data-lang-en="Follow these steps to install the necessary software and create the 'bridge' between your Arduino sensors and the web interface." data-lang-si="අවශ්‍ය මෘදුකාංග ස්ථාපනය කිරීමට සහ ඔබේ Arduino සංවේදක සහ වෙබ් අතුරුමුහුණත අතර 'පාලම' සෑදීමට මෙම පියවර අනුගමනය කරන්න.">Follow these steps to install the necessary software and create the 'bridge' between your Arduino sensors and the web interface.</p>
+            
+            <div class="accordion" id="softwareSetupAccordion">
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSetupStep1">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSetupStep1" aria-expanded="false" aria-controls="collapseSetupStep1">
+                            <strong data-lang-en="Step 1:" data-lang-si="පියවර 1:">Step 1:</strong>&nbsp;<span data-lang-en="Get Your Computer Ready" data-lang-si="ඔබගේ පරිගණකය සූදානම් කරගැනීම">Get Your Computer Ready</span>
+                        </button>
+                    </h2>
+                    <div id="collapseSetupStep1" class="accordion-collapse collapse" aria-labelledby="headingSetupStep1" data-bs-parent="#softwareSetupAccordion">
+                        <div class="accordion-body">
+                            <p data-lang-en="First, you need to install the software that makes everything work." data-lang-si="පළමුව, සෑම දෙයක්ම ක්‍රියාත්මක කරන මෘදුකාංගය ස්ථාපනය කළ යුතුය.">First, you need to install the software that makes everything work.</p>
+                            <ul>
+                                <li>
+                                    <strong><span data-lang-en="Install Python" data-lang-si="Python ස්ථාපනය කරන්න">Install Python</span>:</strong>
+                                    <span data-lang-en=" This is the programming language we'll use for the 'bridge'." data-lang-si=" මෙය 'පාලම' සඳහා අප භාවිතා කරන programming language එකයි."> This is the programming language we'll use for the "bridge".</span>
+                                </li>
+                                <li>
+                                    <strong><span data-lang-en="Install Arduino Software (IDE)" data-lang-si="Arduino මෘදුකාංග (IDE) ස්ථාපනය කරන්න">Install Arduino Software (IDE)</span>:</strong>
+                                    <span data-lang-en=" This is what you'll use to program your Arduino board." data-lang-si=" ඔබේ Arduino පුවරුව program කිරීමට ඔබ භාවිතා කරන්නේ මෙයයි."> This is what you'll use to program your Arduino board.</span>
+                                </li>
+                                <li>
+                                    <strong><span data-lang-en="Install Python Helpers" data-lang-si="Python සහායක ස්ථාපනය කරන්න">Install Python Helpers</span>:</strong>
+                                    <span data-lang-en=" Open your computer's terminal or command prompt and run this command. It gives Python the tools it needs to talk to the Arduino and the website." data-lang-si=" ඔබේ පරිගණකයේ terminal හෝ command prompt එක විවෘත කර මෙම විධානය ක්‍රියාත්මක කරන්න. එය Arduino සහ වෙබ් අඩවිය සමඟ සන්නිවේදනය කිරීමට Python වෙත අවශ්‍ය මෙවලම් ලබා දෙයි."> Open your computer's terminal or command prompt and run this command. It gives Python the tools it needs to talk to the Arduino and the website.</span>
+                                </li>
+                            </ul>
+                            <pre class="bg-light p-2 rounded"><code>pip install pyserial websockets</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSetupStep2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSetupStep2" aria-expanded="false" aria-controls="collapseSetupStep2">
+                            <strong data-lang-en="Step 2:" data-lang-si="පියවර 2:">Step 2:</strong>&nbsp;<span data-lang-en="Program the Arduino Board" data-lang-si="Arduino පුවරුව Program කිරීම">Program the Arduino Board</span>
+                        </button>
+                    </h2>
+                    <div id="collapseSetupStep2" class="accordion-collapse collapse" aria-labelledby="headingSetupStep2" data-bs-parent="#softwareSetupAccordion">
+                        <div class="accordion-body">
+                            <p data-lang-en="Next, you need to tell your Arduino what to do." data-lang-si="ඊළඟට, ඔබගේ Arduino වෙත කුමක් කළ යුතු දැයි පැවසිය යුතුය.">Next, you need to tell your Arduino what to do.</p>
+                             <ul>
+                                <li>
+                                    <strong><span data-lang-en="Write the Arduino Code" data-lang-si="Arduino කේතය ලියන්න">Write the Arduino Code</span>:</strong>
+                                    <span data-lang-en=" Create the code that reads the information from your potentiometer and encoder." data-lang-si=" ඔබේ potentiometer සහ encoder වෙතින් තොරතුරු කියවන කේතය සාදන්න."> Create the code that reads the information from your potentiometer and encoder.</span>
+                                 </li>
+                                 <li>
+                                    <strong><span data-lang-en="Upload the Code" data-lang-si="කේතය Upload කරන්න">Upload the Code</span>:</strong>
+                                    <span data-lang-en=" Connect the Arduino to your computer with a USB cable and use the Arduino software to send this code to the board. Now, the Arduino will constantly send sensor data through the USB cable." data-lang-si=" USB කේබලයක් මගින් Arduino එක පරිගණකයට සම්බන්ධ කර, මෙම කේතය පුවරුවට යැවීමට Arduino මෘදුකාංගය භාවිතා කරන්න. දැන්, Arduino මගින් නිරන්තරයෙන් USB කේබලය හරහා සංවේදක දත්ත එවනු ඇත."> Connect the Arduino to your computer with a USB cable and use the Arduino software to send this code to the board. Now, the Arduino will constantly send sensor data through the USB cable.</span>
+                                 </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSetupStep3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSetupStep3" aria-expanded="false" aria-controls="collapseSetupStep3">
+                            <strong data-lang-en="Step 3:" data-lang-si="පියවර 3:">Step 3:</strong>&nbsp;<span data-lang-en="Create the Python Link" data-lang-si="Python සම්බන්ධකය සෑදීම">Create the Python Link</span>
+                        </button>
+                    </h2>
+                    <div id="collapseSetupStep3" class="accordion-collapse collapse" aria-labelledby="headingSetupStep3" data-bs-parent="#softwareSetupAccordion">
+                        <div class="accordion-body">
+                             <p data-lang-en="Now, you need a program that acts as a link between your Arduino and your website. This program's job is to:" data-lang-si="දැන්, ඔබට ඔබේ Arduino සහ වෙබ් අඩවිය අතර සම්බන්ධකයක් ලෙස ක්‍රියා කරන program එකක් අවශ්‍ය වේ. මෙම program එකේ කාර්යය වන්නේ:">Now, you need a program that acts as a link between your Arduino and your website. This program's job is to:</p>
+                            <ul>
+                                <li><span data-lang-en="Listen for the data coming from the Arduino through the USB port." data-lang-si="USB port එක හරහා Arduino වෙතින් එන දත්ත වලට සවන් දීම.">Listen for the data coming from the Arduino through the USB port.</span></li>
+                                <li><span data-lang-en="Create a 'local server' that your website can connect to." data-lang-si="ඔබේ වෙබ් අඩවියට සම්බන්ධ විය හැකි 'local server' එකක් සෑදීම.">Create a "local server" that your website can connect to.</span></li>
+                                <li><span data-lang-en="Pass the Arduino data along to the website as soon as it gets it." data-lang-si="Arduino දත්ත ලැබුණු විගස වෙබ් අඩවියට යැවීම.">Pass the Arduino data along to the website as soon as it gets it.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSetupStep4">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSetupStep4" aria-expanded="false" aria-controls="collapseSetupStep4">
+                            <strong data-lang-en="Step 4:" data-lang-si="පියවර 4:">Step 4:</strong>&nbsp;<span data-lang-en="Run Everything!" data-lang-si="සියල්ල ක්‍රියාත්මක කිරීම!">Run Everything!</span>
+                        </button>
+                    </h2>
+                    <div id="collapseSetupStep4" class="accordion-collapse collapse" aria-labelledby="headingSetupStep4" data-bs-parent="#softwareSetupAccordion">
+                        <div class="accordion-body">
+                            <p data-lang-en="You're ready to see it all work together." data-lang-si="ඒ සියල්ල එකට ක්‍රියා කරන ආකාරය බැලීමට ඔබ සූදානම්.">You're ready to see it all work together.</p>
+                             <ul>
+                                <li>
+                                    <strong><span data-lang-en="Run the Python Link" data-lang-si="Python සම්බන්ධකය ක්‍රියාත්මක කරන්න">Run the Python Link</span>:</strong>
+                                    <span data-lang-en=" Start your Python program. It will begin listening for the Arduino." data-lang-si=" ඔබේ Python program එක ආරම්භ කරන්න. එය Arduino වෙතින් එන දත්ත සඳහා සවන් දීම අරඹනු ඇත."> Start your Python program. It will begin listening for the Arduino.</span>
+                                 </li>
+                                 <li>
+                                    <strong><span data-lang-en="Connect the Website" data-lang-si="වෙබ් අඩවිය සම්බන්ධ කරන්න">Connect the Website</span>:</strong>
+                                    <span data-lang-en=" Open your project's webpage in a browser and click the 'Start' or 'Connect' button." data-lang-si=" බ්‍රව්සරයකින් ඔබේ ව්‍යාපෘතියේ වෙබ් පිටුව විවෘත කර 'Start' හෝ 'Connect' බොත්තම ක්ලික් කරන්න."> Open your project's webpage in a browser and click the "Start" or "Connect" button.</span>
+                                 </li>
+                            </ul>
+                            <p class="mt-3" data-lang-en="That's it! The website is now connected to the Python link, which is connected to your Arduino. You should see the sensor information appear on your screen." data-lang-si="එපමණයි! වෙබ් අඩවිය දැන් Python සම්බන්ධකයට සම්බන්ධ වී ඇති අතර, එය ඔබේ Arduino වෙත සම්බන්ධ වී ඇත. ඔබට සංවේදක තොරතුරු තිරය මත දැකගත හැකි වනු ඇත.">That's it! The website is now connected to the Python link, which is connected to your Arduino. You should see the sensor information appear on your screen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section-inner-page mt-5">
+            <h2 data-lang-en="Technical Guide: Interfacing a Load Cell with Arduino" data-lang-si="තාක්ෂණික මාර්ගෝපදේශය: Arduino සමඟ Load Cell අතුරුමුහුණත් කිරීම" class="mb-3"><i class="fas fa-balance-scale me-2"></i>Technical Guide: Interfacing a Load Cell with Arduino</h2>
+            
+            <div class="accordion" id="loadCellAccordion">
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingLoadCellStep1">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLoadCellStep1" aria-expanded="false" aria-controls="collapseLoadCellStep1">
+                            <span data-lang-en="1. Components Required" data-lang-si="1. අවශ්‍ය උපාංග">1. Components Required</span>
+                        </button>
+                    </h2>
+                    <div id="collapseLoadCellStep1" class="accordion-collapse collapse" aria-labelledby="headingLoadCellStep1" data-bs-parent="#loadCellAccordion">
+                        <div class="accordion-body">
+                            <ul>
+                                <li><span data-lang-en="Arduino Uno" data-lang-si="Arduino Uno">Arduino Uno</span></li>
+                                <li><span data-lang-en="5kg Bar-Type Load Cell" data-lang-si="5kg බාර් වර්ගයේ Load Cell">5kg Bar-Type Load Cell</span></li>
+                                <li><span data-lang-en="HX711 Amplifier Module" data-lang-si="HX711 ඇම්ප්ලිෆයර් මොඩියුලය">HX711 Amplifier Module</span></li>
+                                <li><span data-lang-en="Pulley or Roller Bearing" data-lang-si="පුලියක් හෝ රෝලර් බෙයාරිමක්">Pulley or Roller Bearing</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingLoadCellStep2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLoadCellStep2" aria-expanded="false" aria-controls="collapseLoadCellStep2">
+                            <span data-lang-en="2. Wiring Schematic" data-lang-si="2. රැහැන් සටහන">2. Wiring Schematic</span>
+                        </button>
+                    </h2>
+                    <div id="collapseLoadCellStep2" class="accordion-collapse collapse" aria-labelledby="headingLoadCellStep2" data-bs-parent="#loadCellAccordion">
+                        <div class="accordion-body">
+                            <p><strong><span data-lang-en="A. Load Cell to HX711 Module:" data-lang-si="A. Load Cell සිට HX711 මොඩියුලය දක්වා:">A. Load Cell to HX711 Module:</span></strong></p>
+                            <ul>
+                                <li><span data-lang-en="Red Wire &rarr; E+" data-lang-si="රතු වයරය &rarr; E+">Red Wire &rarr; E+</span></li>
+                                <li><span data-lang-en="Black Wire &rarr; E-" data-lang-si="කළු වයරය &rarr; E-">Black Wire &rarr; E-</span></li>
+                                <li><span data-lang-en="White Wire &rarr; A-" data-lang-si="සුදු වයරය &rarr; A-">White Wire &rarr; A-</span></li>
+                                <li><span data-lang-en="Green Wire &rarr; A+" data-lang-si="කොළ වයරය &rarr; A+">Green Wire &rarr; A+</span></li>
+                            </ul>
+                            <p class="mt-3"><strong><span data-lang-en="B. HX711 Module to Arduino Uno:" data-lang-si="B. HX711 මොඩියුලයේ සිට Arduino Uno දක්වා:">B. HX711 Module to Arduino Uno:</span></strong></p>
+                            <ul>
+                                <li><span data-lang-en="GND &rarr; Arduino GND" data-lang-si="GND &rarr; Arduino GND">GND &rarr; Arduino GND</span></li>
+                                <li><span data-lang-en="VCC &rarr; Arduino 5V" data-lang-si="VCC &rarr; Arduino 5V">VCC &rarr; Arduino 5V</span></li>
+                                <li><span data-lang-en="DT &rarr; Arduino Digital Pin 2" data-lang-si="DT &rarr; Arduino ඩිජිටල් පින් 2">DT &rarr; Arduino Digital Pin 2</span></li>
+                                <li><span data-lang-en="SCK &rarr; Arduino Digital Pin 3" data-lang-si="SCK &rarr; Arduino ඩිජිටල් පින් 3">SCK &rarr; Arduino Digital Pin 3</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingLoadCellStep3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLoadCellStep3" aria-expanded="false" aria-controls="collapseLoadCellStep3">
+                           <span data-lang-en="3. Software and Calibration" data-lang-si="3. මෘදුකාංග සහ ක්‍රමාංකනය">3. Software and Calibration</span>
+                        </button>
+                    </h2>
+                    <div id="collapseLoadCellStep3" class="accordion-collapse collapse" aria-labelledby="headingLoadCellStep3" data-bs-parent="#loadCellAccordion">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>
+                                    <strong><span data-lang-en="Install Library" data-lang-si="පුස්තකාලය ස්ථාපනය කිරීම">Install Library</span>:</strong>
+                                    <span data-lang-en=" In the Arduino IDE, go to the Library Manager and install &quot;HX711_ADC by Olav Kallhovd&quot;." data-lang-si=" Arduino IDE හි, Library Manager වෙත ගොස් &quot;HX711_ADC by Olav Kallhovd&quot; ස්ථාපනය කරන්න."> In the Arduino IDE, go to the Library Manager and install "HX711_ADC by Olav Kallhovd".</span>
+                                </li>
+                                <li>
+                                    <strong><span data-lang-en="Calibrate" data-lang-si="ක්‍රමාංකනය කිරීම">Calibrate</span>:</strong>
+                                    <span data-lang-en="Upload a calibration sketch to read raw data from the sensor." data-lang-si="සංවේදකයෙන් raw දත්ත කියවීමට ක්‍රමාංකන sketch එකක් Upload කරන්න.">Upload a calibration sketch to read raw data from the sensor.</span>
+                                    <ul>
+                                        <li><span data-lang-en="With no weight, allow the sensor to tare (zero out)." data-lang-si="කිසිදු බරක් නොමැතිව, සංවේදකය tare වීමට (ශුන්‍ය වීමට) ඉඩ දෙන්න.">With no weight, allow the sensor to tare (zero out).</span></li>
+                                        <li><span data-lang-en="Place a known mass (e.g., 500g) on the sensor and record the raw reading from the Serial Monitor." data-lang-si="දන්නා ස්කන්ධයක් (උදා: 500g) සංවේදකය මත තබා Serial Monitor වෙතින් raw කියවීම සටහන් කරගන්න.">Place a known mass (e.g., 500g) on the sensor and record the raw reading from the Serial Monitor.</span></li>
+                                        <li>
+                                            <span data-lang-en="Calculate the Calibration Factor using the formula:" data-lang-si="සූත්‍රය භාවිතයෙන් ක්‍රමාංකන සාධකය ගණනය කරන්න:">Calculate the Calibration Factor using the formula:</span>
+                                            <br>
+                                            <code><span data-lang-en="Calibration Factor = Raw Reading / Known Mass (in grams)" data-lang-si="ක්‍රමාංකන සාධකය = Raw කියවීම / දන්නා ස්කන්ධය (ග්‍රෑම් වලින්)">Calibration Factor = Raw Reading / Known Mass (in grams)</span></code>
+                                        </li>
+                                    </ul>
+                                </li>
+                                 <li>
+                                    <strong><span data-lang-en="Measure" data-lang-si="මැනීම">Measure</span>:</strong>
+                                    <span data-lang-en="Use a measurement sketch." data-lang-si="මිනුම් sketch එකක් භාවිතා කරන්න.">Use a measurement sketch.</span>
+                                    <ul>
+                                        <li><span data-lang-en="Set the calculated Calibration Factor in the code." data-lang-si="ගණනය කළ ක්‍රමාංකන සාධකය කේතයෙහි සකසන්න.">Set the calculated Calibration Factor in the code.</span></li>
+                                        <li><span data-lang-en="The Arduino will now output the measured force in grams." data-lang-si="Arduino දැන් මනින ලද බලය ග්‍රෑම් වලින් ප්‍රතිදානය කරනු ඇත.">The Arduino will now output the measured force in grams.</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingLoadCellStep4">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLoadCellStep4" aria-expanded="false" aria-controls="collapseLoadCellStep4">
+                            <span data-lang-en="4. Mechanical Setup for Belt Tension" data-lang-si="4. Belt Tension සඳහා යාන්ත්‍රික සැකසුම">4. Mechanical Setup for Belt Tension</span>
+                        </button>
+                    </h2>
+                    <div id="collapseLoadCellStep4" class="accordion-collapse collapse" aria-labelledby="headingLoadCellStep4" data-bs-parent="#loadCellAccordion">
+                        <div class="accordion-body">
+                            <p data-lang-en="The load cell reading provides a proxy for belt tension." data-lang-si="Load cell කියවීම belt tension සඳහා ආසන්න අගයක් සපයයි.">The load cell reading provides a proxy for belt tension.</p>
+                            <ul>
+                                <li>
+                                    <strong><span data-lang-en="Mounting" data-lang-si="සවිකිරීම">Mounting</span>:</strong>
+                                    <span data-lang-en=" Securely mount the load cell onto a fixed frame." data-lang-si=" Load cell එක ස්ථාවර රාමුවක සුරක්ෂිතව සවිකරන්න."> Securely mount the load cell onto a fixed frame.</span>
+                                </li>
+                                <li>
+                                    <strong><span data-lang-en="Force Application" data-lang-si="බලය යෙදීම">Force Application</span>:</strong>
+                                    <span data-lang-en=" Attach the pulley to the active end of the load cell." data-lang-si=" පුලිය load cell එකේ ක්‍රියාකාරී කෙළවරට සවිකරන්න."> Attach the pulley to the active end of the load cell.</span>
+                                </li>
+                                <li>
+                                    <strong><span data-lang-en="Measurement" data-lang-si="මැනීම">Measurement</span>:</strong>
+                                    <span data-lang-en=" Position the pulley to press against the belt, causing a slight deflection. The force measured by the load cell is directly proportional to the tension in the belt. A higher force reading indicates higher tension." data-lang-si=" Belt එකට මඳක් තෙරපීමක් ඇති වන සේ පුලිය ස්ථානගත කරන්න. Load cell එක මගින් මනිනු ලබන බලය belt එකේ tension එකට සෘජුව සමානුපාතික වේ. වැඩි බල කියවීමක් වැඩි tension එකක් පෙන්නුම් කරයි."> Position the pulley to press against the belt, causing a slight deflection. The force measured by the load cell is directly proportional to the tension in the belt. A higher force reading indicates higher tension.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section-inner-page mt-5">
+            <h2 data-lang-en="Technical Guide: CAM Analysis System" data-lang-si="තාක්ෂණික මාර්ගෝපදේශය: CAM විශ්ලේෂණ පද්ධතිය" class="mb-3"><i class="fas fa-chart-line me-2"></i>Technical Guide: CAM Analysis System</h2>
+
+            <div class="accordion" id="camAnalysisAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCamAnalysisStep1">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCamAnalysisStep1" aria-expanded="false" aria-controls="collapseCamAnalysisStep1">
+                            <span data-lang-en="1. Required Components" data-lang-si="1. අවශ්‍ය උපාංග">1. Required Components</span>
+                        </button>
+                    </h2>
+                    <div id="collapseCamAnalysisStep1" class="accordion-collapse collapse" aria-labelledby="headingCamAnalysisStep1" data-bs-parent="#camAnalysisAccordion">
+                        <div class="accordion-body">
+                            <ul>
+                                <li><span data-lang-en="Arduino Uno" data-lang-si="Arduino Uno">Arduino Uno</span></li>
+                                <li><span data-lang-en="Slide Potentiometer (Fader)" data-lang-si="ස්ලයිඩ් පොටෙන්ටියෝමීටරය (Fader)">Slide Potentiometer (Fader)</span></li>
+                                <li><span data-lang-en="Rotary Encoder (Incremental)" data-lang-si="භ්‍රමණ එන්කෝඩරය (Incremental)">Rotary Encoder (Incremental)</span></li>
+                                <li><span data-lang-en="CAM System with Follower" data-lang-si="Follower සහිත CAM පද්ධතිය">CAM System with Follower</span></li>
+                                <li><span data-lang-en="Connecting Wires and Mechanical Couplers/Linkages" data-lang-si="සම්බන්ධක වයර් සහ යාන්ත්‍රික කප්ලර්/සම්බන්ධක">Connecting Wires and Mechanical Couplers/Linkages</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCamAnalysisStep2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCamAnalysisStep2" aria-expanded="false" aria-controls="collapseCamAnalysisStep2">
+                            <span data-lang-en="2. Mechanical Assembly" data-lang-si="2. යාන්ත්‍රික එකලස් කිරීම">2. Mechanical Assembly</span>
+                        </button>
+                    </h2>
+                    <div id="collapseCamAnalysisStep2" class="accordion-collapse collapse" aria-labelledby="headingCamAnalysisStep2" data-bs-parent="#camAnalysisAccordion">
+                        <div class="accordion-body">
+                            <p data-lang-en="Proper mechanical integration of the sensors is critical for accurate measurements." data-lang-si="නිවැරදි මිනුම් සඳහා සංවේදක නිසි ලෙස යාන්ත්‍රිකව ඒකාබද්ධ කිරීම ඉතා වැදගත් වේ.">Proper mechanical integration of the sensors is critical for accurate measurements.</p>
+                            <p class="mt-2"><strong><span data-lang-en="Slide Potentiometer (For Displacement):" data-lang-si="ස්ලයිඩ් පොටෙන්ටියෝමීටරය (විස්ථාපනය සඳහා):">Slide Potentiometer (For Displacement):</span></strong></p>
+                            <ul>
+                                <li><span data-lang-en="Mount the body of the potentiometer to the fixed frame of the CAM system." data-lang-si="පොටෙන්ටියෝමීටරයේ મુખ્ય කොටස CAM පද්ධතියේ ස්ථාවර රාමුවට සවිකරන්න.">Mount the body of the potentiometer to the fixed frame of the CAM system.</span></li>
+                                <li><span data-lang-en="Mechanically connect the slider of the potentiometer directly to the CAM follower. A small, rigid linkage may be used." data-lang-si="පොටෙන්ටියෝමීටරයේ ස්ලයිඩරය CAM follower එකට සෘජුවම යාන්ත්‍රිකව සම්බන්ධ කරන්න. කුඩා, දෘඩ සම්බන්ධකයක් භාවිතා කළ හැකිය.">Mechanically connect the slider of the potentiometer directly to the CAM follower. A small, rigid linkage may be used.</span></li>
+                                <li><span data-lang-en="Requirement: The slider must travel the exact same distance as the follower moves." data-lang-si="අවශ්‍යතාවය: ස්ලයිඩරය follower එක ගමන් කරන නියම දුරම ගමන් කළ යුතුය.">Requirement: The slider must travel the exact same distance as the follower moves.</span></li>
+                            </ul>
+                            <p class="mt-2"><strong><span data-lang-en="Rotary Encoder (For Angle):" data-lang-si="භ්‍රමණ එන්කෝඩරය (කෝණය සඳහා):">Rotary Encoder (For Angle):</span></strong></p>
+                            <ul>
+                                <li><span data-lang-en="Couple the shaft of the encoder to the main rotating shaft of the CAM, ensuring a 1:1 rotation ratio." data-lang-si="එන්කෝඩරයේ shaft එක CAM හි ප්‍රධාන භ්‍රමණය වන shaft එකට 1:1 භ්‍රමණ අනුපාතයක් සහතික කරමින් සම්බන්ධ කරන්න.">Couple the shaft of the encoder to the main rotating shaft of the CAM, ensuring a 1:1 rotation ratio.</span></li>
+                                <li><span data-lang-en="Mount the body of the encoder so that it remains stationary." data-lang-si="එන්කෝඩරයේ મુખ્ય කොටස එය නිශ්චලව පවතින සේ සවිකරන්න.">Mount the body of the encoder so that it remains stationary.</span></li>
+                                <li><span data-lang-en="Requirement: When the CAM shaft rotates 360°, the encoder shaft must also rotate exactly 360°." data-lang-si="අවශ්‍යතාවය: CAM shaft එක 360° ක් භ්‍රමණය වන විට, එන්කෝඩර් shaft එක ද හරියටම 360° ක් භ්‍රමණය විය යුතුය.">Requirement: When the CAM shaft rotates 360&deg;, the encoder shaft must also rotate exactly 360&deg;.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCamAnalysisStep3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCamAnalysisStep3" aria-expanded="false" aria-controls="collapseCamAnalysisStep3">
+                           <span data-lang-en="3. Wiring Schematic" data-lang-si="3. රැහැන් සටහන">3. Wiring Schematic</span>
+                        </button>
+                    </h2>
+                    <div id="collapseCamAnalysisStep3" class="accordion-collapse collapse" aria-labelledby="headingCamAnalysisStep3" data-bs-parent="#camAnalysisAccordion">
+                        <div class="accordion-body">
+                            <p data-lang-en="Connect the sensors to the Arduino Uno as follows." data-lang-si="සංවේදක Arduino Uno වෙත පහත පරිදි සම්බන්ධ කරන්න.">Connect the sensors to the Arduino Uno as follows.</p>
+                            <p class="mt-2"><strong><span data-lang-en="Slide Potentiometer &rarr; Arduino:" data-lang-si="ස්ලයිඩ් පොටෙන්ටියෝමීටරය &rarr; Arduino:">Slide Potentiometer &rarr; Arduino:</span></strong></p>
+                            <ul>
+                                <li><span data-lang-en="VCC/5V pin &rarr; Arduino 5V" data-lang-si="VCC/5V පින් &rarr; Arduino 5V">VCC/5V pin &rarr; Arduino 5V</span></li>
+                                <li><span data-lang-en="GND pin &rarr; Arduino GND" data-lang-si="GND පින් &rarr; Arduino GND">GND pin &rarr; Arduino GND</span></li>
+                                <li><span data-lang-en="OUT/Signal pin &rarr; Arduino Analog Pin A0" data-lang-si="OUT/Signal පින් &rarr; Arduino ඇනලොග් පින් A0">OUT/Signal pin &rarr; Arduino Analog Pin A0</span></li>
+                            </ul>
+                            <p class="mt-2"><strong><span data-lang-en="Rotary Encoder &rarr; Arduino:" data-lang-si="භ්‍රමණ එන්කෝඩරය &rarr; Arduino:">Rotary Encoder &rarr; Arduino:</span></strong></p>
+                            <ul>
+                                <li><span data-lang-en="VCC/5V pin &rarr; Arduino 5V" data-lang-si="VCC/5V පින් &rarr; Arduino 5V">VCC/5V pin &rarr; Arduino 5V</span></li>
+                                <li><span data-lang-en="GND pin &rarr; Arduino GND" data-lang-si="GND පින් &rarr; Arduino GND">GND pin &rarr; Arduino GND</span></li>
+                                <li><span data-lang-en="CLK (Pin A) &rarr; Arduino Digital Pin D2 (must be an interrupt pin)" data-lang-si="CLK (පින් A) &rarr; Arduino ඩිජිටල් පින් D2 (interrupt පින් එකක් විය යුතුය)">CLK (Pin A) &rarr; Arduino Digital Pin D2 (must be an interrupt pin)</span></li>
+                                <li><span data-lang-en="DT (Pin B) &rarr; Arduino Digital Pin D3" data-lang-si="DT (පින් B) &rarr; Arduino ඩිජිටල් පින් D3">DT (Pin B) &rarr; Arduino Digital Pin D3</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCamAnalysisStep4">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCamAnalysisStep4" aria-expanded="false" aria-controls="collapseCamAnalysisStep4">
+                            <span data-lang-en="4. Data Acquisition Logic" data-lang-si="4. දත්ත ලබා ගැනීමේ තර්කනය">4. Data Acquisition Logic</span>
+                        </button>
+                    </h2>
+                    <div id="collapseCamAnalysisStep4" class="accordion-collapse collapse" aria-labelledby="headingCamAnalysisStep4" data-bs-parent="#camAnalysisAccordion">
+                        <div class="accordion-body">
+                            <p data-lang-en="These are the principles for the Arduino code logic." data-lang-si="මේවා Arduino කේත තර්කනය සඳහා වන මූලධර්ම වේ.">These are the principles for the Arduino code logic.</p>
+                            <p class="mt-2"><strong><span data-lang-en="Follower Displacement (from Slide Potentiometer):" data-lang-si="Follower විස්ථාපනය (ස්ලයිඩ් පොටෙන්ටියෝමීටරයෙන්):">Follower Displacement (from Slide Potentiometer):</span></strong></p>
+                            <ul>
+                                <li><span data-lang-en="Use the analogRead(A0) function to get a raw value between 0-1023." data-lang-si="0-1023 අතර raw අගයක් ලබා ගැනීමට analogRead(A0) ශ්‍රිතය භාවිතා කරන්න.">Use the <code>analogRead(A0)</code> function to get a raw value between 0-1023.</span></li>
+                                <li><span data-lang-en="Map this raw ADC value to the actual physical displacement in millimeters (mm)." data-lang-si="මෙම raw ADC අගය මිලිමීටර් (mm) වලින් සැබෑ භෞතික විස්ථාපනයට සිතියම් ගත කරන්න.">Map this raw ADC value to the actual physical displacement in millimeters (mm).</span></li>
+                                <li>
+                                    <span data-lang-en="Calibration: First, measure the follower's maximum travel distance (max_displacement_mm). Then, record the minimum and maximum raw ADC values from the potentiometer (min_ADC, max_ADC) that correspond to this travel." data-lang-si="ක්‍රමාංකනය: පළමුව, follower හි උපරිම ගමන් දුර (max_displacement_mm) මැන බලන්න. ඉන්පසු, මෙම ගමනට අනුරූප වන පොටෙන්ටියෝමීටරයෙන් අවම සහ උපරිම raw ADC අගයන් (min_ADC, max_ADC) සටහන් කරගන්න.">Calibration: First, measure the follower's maximum travel distance (max_displacement_mm). Then, record the minimum and maximum raw ADC values from the potentiometer (min_ADC, max_ADC) that correspond to this travel.</span>
+                                </li>
+                                <li>
+                                    <span data-lang-en="Formula:" data-lang-si="සූත්‍රය:">Formula:</span> <code><span data-lang-en="Displacement (mm) = map(analogValue, min_ADC, max_ADC, 0, max_displacement_mm);" data-lang-si="විස්ථාපනය (mm) = map(analogValue, min_ADC, max_ADC, 0, max_displacement_mm);">Displacement (mm) = map(analogValue, min_ADC, max_ADC, 0, max_displacement_mm);</span></code>
+                                </li>
+                            </ul>
+                            <p class="mt-2"><strong><span data-lang-en="CAM Angle (from Rotary Encoder):" data-lang-si="CAM කෝණය (භ්‍රමණ එන්කෝඩරයෙන්):">CAM Angle (from Rotary Encoder):</span></strong></p>
+                            <ul>
+                                <li><span data-lang-en="Using interrupts is essential for accuracy. Use attachInterrupt() on pin D2." data-lang-si="නිරවද්‍යතාවය සඳහා interrupts භාවිතා කිරීම අත්‍යවශ්‍ය වේ. D2 පින් එකේ attachInterrupt() භාවිතා කරන්න.">Using interrupts is essential for accuracy. Use <code>attachInterrupt()</code> on pin D2.</span></li>
+                                <li><span data-lang-en="The interrupt will trigger on every change of the CLK pin (e.g., on the RISING edge) as the CAM rotates." data-lang-si="CAM එක භ්‍රමණය වන විට CLK පින් එකේ සෑම වෙනසකදීම (උදා: RISING edge හිදී) interrupt එක ක්‍රියාත්මක වේ.">The interrupt will trigger on every change of the CLK pin (e.g., on the RISING edge) as the CAM rotates.</span></li>
+                                <li><span data-lang-en="Inside the interrupt routine, read the state of the DT pin (D3) to determine the direction of rotation (clockwise or counter-clockwise)." data-lang-si="Interrupt රූටීනය තුළ, භ්‍රමණ දිශාව (දක්ෂිණාවර්ත හෝ වාමාවර්ත) තීරණය කිරීම සඳහා DT පින් (D3) හි තත්වය කියවන්න.">Inside the interrupt routine, read the state of the DT pin (D3) to determine the direction of rotation (clockwise or counter-clockwise).</span></li>
+                                <li><span data-lang-en="Increment or decrement an angle counter variable based on the direction." data-lang-si="දිශාව මත පදනම්ව කෝණ කවුන්ටර විචල්‍යයක් වැඩි කිරීම හෝ අඩු කිරීම සිදු කරන්න.">Increment or decrement an angle counter variable based on the direction.</span></li>
+                                <li>
+                                    <span data-lang-en="Convert the counter value to degrees (°). using the encoder's PPR (Pulses Per Revolution) specification." data-lang-si="එන්කෝඩරයේ PPR (Pulses Per Revolution) පිරිවිතරය භාවිතයෙන් කවුන්ටර අගය අංශක (°) බවට පරිවර්තනය කරන්න.">Convert the counter value to degrees (&deg;) using the encoder's PPR (Pulses Per Revolution) specification.</span>
+                                </li>
+                                <li>
+                                    <span data-lang-en="Formula:" data-lang-si="සූත්‍රය:">Formula:</span> <code><span data-lang-en="Angle (°) = (counter / PPR) * 360;" data-lang-si="කෝණය (°) = (counter / PPR) * 360;">Angle (&deg;) = (counter / PPR) * 360;</span></code>
+                                </li>
+                            </ul>
+                            <p class="mt-2" data-lang-en="Finally, the Displacement and Angle data pairs acquired at each step can be sent via WebSockets to be rendered on your website's graph." data-lang-si="අවසාන වශයෙන්, එක් එක් පියවරේදී ලබාගත් විස්ථාපන සහ කෝණ දත්ත යුගල ඔබේ වෙබ් අඩවියේ ප්‍රස්තාරයේ දිස්වීම සඳහා WebSockets හරහා යැවිය හැක.">Finally, the Displacement and Angle data pairs acquired at each step can be sent via WebSockets to be rendered on your website's graph.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section-inner-page mt-5">
+            <h2 data-lang-en="A Complete Guide to Using a Stepper Motor with Arduino and an L298N Driver" data-lang-si="Arduino සහ L298N ඩ්‍රයිවරයක් සමඟ ස්ටෙපර් මෝටරයක් භාවිතා කිරීම සඳහා සම්පූර්ණ මාර්ගෝපදේශය" class="mb-3"><i class="fas fa-sync-alt me-2"></i>A Complete Guide to Using a Stepper Motor with Arduino and an L298N Driver</h2>
+            <p data-lang-en="This guide provides a full, step-by-step process for connecting and running a NEMA 17 stepper motor at a constant speed using an Arduino Uno and an L298N driver module." data-lang-si="මෙම මාර්ගෝපදේශය Arduino Uno සහ L298N ඩ්‍රයිවර් මොඩියුලයක් භාවිතයෙන් NEMA 17 ස්ටෙපර් මෝටරයක් නියත වේගයකින් සම්බන්ධ කර ක්‍රියාත්මක කිරීම සඳහා සම්පූර්ණ, පියවරෙන්-පියවර ක්‍රියාවලියක් සපයයි.">This guide provides a full, step-by-step process for connecting and running a NEMA 17 stepper motor at a constant speed using an Arduino Uno and an L298N driver module.</p>
+
+            <div class="accordion" id="stepperMotorAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingStepperStep1">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStepperStep1" aria-expanded="false" aria-controls="collapseStepperStep1">
+                            <strong data-lang-en="Step 1:" data-lang-si="පියවර 1:">Step 1:</strong>&nbsp;<span data-lang-en="Gather Your Components" data-lang-si="ඔබගේ උපාංග එකතු කරගන්න">Gather Your Components</span>
+                        </button>
+                    </h2>
+                    <div id="collapseStepperStep1" class="accordion-collapse collapse" aria-labelledby="headingStepperStep1" data-bs-parent="#stepperMotorAccordion">
+                        <div class="accordion-body">
+                            <p data-lang-en="First, make sure you have all the necessary parts:" data-lang-si="පළමුව, ඔබට අවශ්‍ය සියලුම කොටස් ඇති බවට වග බලා ගන්න:">First, make sure you have all the necessary parts:</p>
+                            <ul>
+                                <li><span data-lang-en="Arduino Uno board" data-lang-si="Arduino Uno පුවරුව">Arduino Uno board</span></li>
+                                <li><span data-lang-en="NEMA 17 Stepper Motor (typically with 4 wires)" data-lang-si="NEMA 17 ස්ටෙපර් මෝටරය (සාමාන්‍යයෙන් වයර් 4 ක් සහිත)">NEMA 17 Stepper Motor (typically with 4 wires)</span></li>
+                                <li><span data-lang-en="L298N Motor Driver Module" data-lang-si="L298N මෝටර් ඩ්‍රයිවර් මොඩියුලය">L298N Motor Driver Module</span></li>
+                                <li><span data-lang-en="External Power Supply (9V or 12V) for the motor" data-lang-si="මෝටරය සඳහා බාහිර බල සැපයුම (9V හෝ 12V)">External Power Supply (9V or 12V) for the motor</span></li>
+                                <li><span data-lang-en="Jumper Wires" data-lang-si="ජම්පර් වයර්">Jumper Wires</span></li>
+                                <li><span data-lang-en="USB Cable" data-lang-si="USB කේබලය">USB Cable</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingStepperStep2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStepperStep2" aria-expanded="false" aria-controls="collapseStepperStep2">
+                            <strong data-lang-en="Step 2:" data-lang-si="පියවර 2:">Step 2:</strong>&nbsp;<span data-lang-en="Identify the Motor's Wire Pairs" data-lang-si="මෝටරයේ වයර් යුගල හඳුනාගැනීම">Identify the Motor's Wire Pairs</span>
+                        </button>
+                    </h2>
+                    <div id="collapseStepperStep2" class="accordion-collapse collapse" aria-labelledby="headingStepperStep2" data-bs-parent="#stepperMotorAccordion">
+                        <div class="accordion-body">
+                            <p data-lang-en="This is a critical first step. The four wires from the motor belong to two separate internal coils (Coil A and Coil B). You must identify which wires belong together." data-lang-si="මෙය තීරණාත්මක පළමු පියවරයි. මෝටරයෙන් එන වයර් හතර වෙනම අභ්‍යන්තර දඟර දෙකකට (දඟර A සහ දඟර B) අයත් වේ. කුමන වයර් එකට අයත් දැයි ඔබ හඳුනාගත යුතුය.">This is a critical first step. The four wires from the motor belong to two separate internal coils (Coil A and Coil B). You must identify which wires belong together.</p>
+                            <p class="mt-2"><strong><span data-lang-en="The Easiest Method:" data-lang-si="පහසුම ක්‍රමය:">The Easiest Method:</span></strong> <span data-lang-en="With the motor not connected to any power, take any two wires and touch their metal tips together. Now, try to turn the motor's shaft with your hand." data-lang-si="මෝටරය කිසිදු බලයකට සම්බන්ධ කර නොමැති විට, ඕනෑම වයර් දෙකක් ගෙන ඒවායේ ලෝහ තුඩු එකට ස්පර්ශ කරන්න. දැන්, ඔබේ අතින් මෝටරයේ shaft එක කරකැවීමට උත්සාහ කරන්න.">With the motor not connected to any power, take any two wires and touch their metal tips together. Now, try to turn the motor's shaft with your hand.</span></p>
+                            <ul>
+                                <li><span data-lang-en="If the shaft becomes harder to turn, you have found a pair belonging to the same coil." data-lang-si="Shaft එක කරකැවීමට අපහසු නම්, ඔබ එකම දඟරයට අයත් යුගලයක් සොයාගෙන ඇත.">If the shaft becomes harder to turn, you have found a pair belonging to the same coil.</span></li>
+                                <li><span data-lang-en="If it turns easily, they are not a pair. Try a different combination." data-lang-si="එය පහසුවෙන් භ්‍රමණය වන්නේ නම්, ඒවා යුගලයක් නොවේ. වෙනත් සංයෝජනයක් උත්සාහ කරන්න.">If it turns easily, they are not a pair. Try a different combination.</span></li>
+                            </ul>
+                            <p data-lang-en="Repeat this process until you have identified the two pairs of wires." data-lang-si="ඔබ වයර් යුගල දෙක හඳුනා ගන්නා තෙක් මෙම ක්‍රියාවලිය නැවත සිදු කරන්න.">Repeat this process until you have identified the two pairs of wires.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingStepperStep3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStepperStep3" aria-expanded="false" aria-controls="collapseStepperStep3">
+                            <strong data-lang-en="Step 3:" data-lang-si="පියවර 3:">Step 3:</strong>&nbsp;<span data-lang-en="Wire the Components" data-lang-si="උපාංග රැහැන්ගත කිරීම">Wire the Components</span>
+                        </button>
+                    </h2>
+                    <div id="collapseStepperStep3" class="accordion-collapse collapse" aria-labelledby="headingStepperStep3" data-bs-parent="#stepperMotorAccordion">
+                        <div class="accordion-body">
+                            <p data-lang-en="Connect all the components correctly as described below." data-lang-si="පහත විස්තර කර ඇති පරිදි සියලුම උපාංග නිවැරදිව සම්බන්ධ කරන්න.">Connect all the components correctly as described below.</p>
+                            <p class="mt-2"><strong><span data-lang-en="Motor to L298N Driver:" data-lang-si="මෝටරයේ සිට L298N ඩ්‍රයිවරය දක්වා:">Motor to L298N Driver:</span></strong></p>
+                            <ul>
+                                <li><span data-lang-en="Connect the first wire pair (Coil A) to the OUT1 and OUT2 terminals on the L298N." data-lang-si="පළමු වයර් යුගලය (දඟර A) L298N හි OUT1 සහ OUT2 ටර්මිනල් වලට සම්බන්ධ කරන්න.">Connect the first wire pair (Coil A) to the OUT1 and OUT2 terminals on the L298N.</span></li>
+                                <li><span data-lang-en="Connect the second wire pair (Coil B) to the OUT3 and OUT4 terminals." data-lang-si="දෙවන වයර් යුගලය (දඟර B) OUT3 සහ OUT4 ටර්මිනල් වලට සම්බන්ධ කරන්න.">Connect the second wire pair (Coil B) to the OUT3 and OUT4 terminals.</span></li>
+                            </ul>
+                            <p class="mt-2"><strong><span data-lang-en="Arduino to L298N Driver:" data-lang-si="Arduino සිට L298N ඩ්‍රයිවරය දක්වා:">Arduino to L298N Driver:</span></strong></p>
+                            <ul>
+                                <li><span data-lang-en="Arduino Digital Pin 8 &rarr; L298N IN1" data-lang-si="Arduino ඩිජිටල් පින් 8 &rarr; L298N IN1">Arduino Digital Pin 8 &rarr; L298N IN1</span></li>
+                                <li><span data-lang-en="Arduino Digital Pin 9 &rarr; L298N IN2" data-lang-si="Arduino ඩිජිටල් පින් 9 &rarr; L298N IN2">Arduino Digital Pin 9 &rarr; L298N IN2</span></li>
+                                <li><span data-lang-en="Arduino Digital Pin 10 &rarr; L298N IN3" data-lang-si="Arduino ඩිජිටල් පින් 10 &rarr; L298N IN3">Arduino Digital Pin 10 &rarr; L298N IN3</span></li>
+                                <li><span data-lang-en="Arduino Digital Pin 11 &rarr; L298N IN4" data-lang-si="Arduino ඩිජිටල් පින් 11 &rarr; L298N IN4">Arduino Digital Pin 11 &rarr; L298N IN4</span></li>
+                            </ul>
+                            <p class="mt-2"><strong><span data-lang-en="Power Supply and Common Ground (Very Important):" data-lang-si="බල සැපයුම සහ පොදු භූගතය (ඉතා වැදගත්):">Power Supply and Common Ground (Very Important):</span></strong></p>
+                            <ul>
+                                <li><span data-lang-en="Connect the positive (+) wire of your external power supply to the 12V terminal on the L298N." data-lang-si="ඔබගේ බාහිර බල සැපයුමේ ධන (+) වයරය L298N හි 12V ටර්මිනලයට සම්බන්ධ කරන්න.">Connect the positive (+) wire of your external power supply to the 12V terminal on the L298N.</span></li>
+                                <li><span data-lang-en="Connect the negative (-) wire of your external power supply to the GND terminal on the L298N." data-lang-si="ඔබගේ බාහිර බල සැපයුමේ සෘණ (-) වයරය L298N හි GND ටර්මිනලයට සම්බන්ධ කරන්න.">Connect the negative (-) wire of your external power supply to the GND terminal on the L298N.</span></li>
+                                <li><span data-lang-en="Run another jumper wire from the GND terminal on the L298N to any GND pin on your Arduino. This common ground connection is essential for the system to work." data-lang-si="L298N හි GND ටර්මිනලයේ සිට ඔබේ Arduino හි ඕනෑම GND පින් එකකට තවත් ජම්පර් වයරයක් අදින්න. මෙම පොදු භූගත සම්බන්ධතාවය පද්ධතිය ක්‍රියාත්මක වීමට අත්‍යවශ්‍ය වේ.">Run another jumper wire from the GND terminal on the L298N to any GND pin on your Arduino. This common ground connection is essential for the system to work.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingStepperStep4">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStepperStep4" aria-expanded="false" aria-controls="collapseStepperStep4">
+                            <strong data-lang-en="Step 4:" data-lang-si="පියවර 4:">Step 4:</strong>&nbsp;<span data-lang-en="The Program Logic" data-lang-si="වැඩසටහන් තර්කනය">The Program Logic</span>
+                        </button>
+                    </h2>
+                    <div id="collapseStepperStep4" class="accordion-collapse collapse" aria-labelledby="headingStepperStep4" data-bs-parent="#stepperMotorAccordion">
+                        <div class="accordion-body">
+                             <p data-lang-en="An Arduino program tells the motor what to do. You don't need to write complex code because a built-in library handles the hard work." data-lang-si="Arduino වැඩසටහනක් මෝටරයට කළ යුතු දේ කියයි. Arduino මෘදුකාංගය සමඟ එන පුස්තකාලයක් දුෂ්කර කාර්යය හසුරුවන නිසා ඔබට සංකීර්ණ කේත ලිවීමට අවශ්‍ය නැත.">An Arduino program tells the motor what to do. You don't need to write complex code because a built-in library handles the hard work.</p>
+                            <ul>
+                                <li><span data-lang-en="The program uses the Stepper.h library, which is included with the Arduino software." data-lang-si="වැඩසටහන Arduino මෘදුකාංගය සමඟ ඇතුළත් කර ඇති Stepper.h පුස්තකාලය භාවිතා කරයි.">The program uses the <code>Stepper.h</code> library, which is included with the Arduino software.</span></li>
+                                <li><span data-lang-en="First, you tell the program which Arduino pins (8, 9, 10, 11) are connected to the driver's input pins." data-lang-si="පළමුව, ඔබ ඩ්‍රයිවරයේ ආදාන පින් වලට සම්බන්ධ කර ඇති Arduino පින් (8, 9, 10, 11) වැඩසටහනට කියයි.">First, you tell the program which Arduino pins (8, 9, 10, 11) are connected to the driver's input pins.</span></li>
+                                <li><span data-lang-en="Next, you use a single command, setSpeed(), to define how fast the motor should turn. You give it a number that represents the speed in RPM (Revolutions Per Minute). For example, setting a speed of 60 will make the motor complete one full turn every second." data-lang-si="ඊළඟට, මෝටරය කොතරම් වේගයෙන් හැරවිය යුතුද යන්න නිර්වචනය කිරීමට ඔබ setSpeed() නම් තනි විධානයක් භාවිතා කරයි. ඔබ එයට RPM (විනාඩියකට විප්ලව) වලින් වේගය නියෝජනය කරන අංකයක් ලබා දෙයි. උදාහරණයක් ලෙස, වේගය 60 ක් ලෙස සැකසීමෙන් මෝටරය සෑම තත්පරයකටම එක් සම්පූර්ණ වටයක් සම්පූර්ණ කරයි.">Next, you use a single command, <code>setSpeed()</code>, to define how fast the motor should turn. You give it a number that represents the speed in RPM (Revolutions Per Minute). For example, setting a speed of 60 will make the motor complete one full turn every second.</span></li>
+                                <li><span data-lang-en="Finally, the program continuously tells the motor to move one step forward in a loop. Because the loop runs very fast, this results in smooth, constant rotation." data-lang-si="අවසාන වශයෙන්, වැඩසටහන මෝටරයට ලූපයක් තුළ එක් පියවරක් ඉදිරියට යාමට නිරන්තරයෙන් කියයි. ලූපය ඉතා වේගයෙන් ක්‍රියාත්මක වන නිසා, මෙය සුමට, නියත භ්‍රමණයකට මග පාදයි.">Finally, the program continuously tells the motor to move one step forward in a loop. Because the loop runs very fast, this results in smooth, constant rotation.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingStepperStep5">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStepperStep5" aria-expanded="false" aria-controls="collapseStepperStep5">
+                            <strong data-lang-en="Step 5:" data-lang-si="පියවර 5:">Step 5:</strong>&nbsp;<span data-lang-en="Upload the Program to the Arduino" data-lang-si="වැඩසටහන Arduino වෙත Upload කිරීම">Upload the Program to the Arduino</span>
+                        </button>
+                    </h2>
+                    <div id="collapseStepperStep5" class="accordion-collapse collapse" aria-labelledby="headingStepperStep5" data-bs-parent="#stepperMotorAccordion">
+                        <div class="accordion-body">
+                            <ul>
+                                <li><span data-lang-en="Connect your Arduino board to your computer using the USB cable." data-lang-si="USB කේබලය භාවිතයෙන් ඔබේ Arduino පුවරුව ඔබේ පරිගණකයට සම්බන්ධ කරන්න.">Connect your Arduino board to your computer using the USB cable.</span></li>
+                                <li><span data-lang-en="In the Arduino IDE software, go to Tools > Board and select &quot;Arduino Uno.&quot;" data-lang-si="Arduino IDE මෘදුකාංගයේ, Tools > Board වෙත ගොස් &quot;Arduino Uno&quot; තෝරන්න.">In the Arduino IDE software, go to Tools > Board and select "Arduino Uno."</span></li>
+                                <li><span data-lang-en="Go to Tools > Port and select the COM port that your Arduino is connected to." data-lang-si="Tools > Port වෙත ගොස් ඔබේ Arduino සම්බන්ධ කර ඇති COM port එක තෝරන්න.">Go to Tools > Port and select the COM port that your Arduino is connected to.</span></li>
+                                <li><span data-lang-en="Click the Upload button (the arrow icon pointing to the right)." data-lang-si="Upload බොත්තම (දකුණට යොමු වූ ඊතල නිරූපකය) ක්ලික් කරන්න.">Click the Upload button (the arrow icon pointing to the right).</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingStepperStep6">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStepperStep6" aria-expanded="false" aria-controls="collapseStepperStep6">
+                            <strong data-lang-en="Step 6:" data-lang-si="පියවර 6:">Step 6:</strong>&nbsp;<span data-lang-en="Power On the System" data-lang-si="පද්ධතිය බලගැන්වීම">Power On the System</span>
+                        </button>
+                    </h2>
+                    <div id="collapseStepperStep6" class="accordion-collapse collapse" aria-labelledby="headingStepperStep6" data-bs-parent="#stepperMotorAccordion">
+                        <div class="accordion-body">
+                            <ul>
+                                <li><span data-lang-en="After the program has successfully uploaded, keep the USB cable connected." data-lang-si="වැඩසටහන සාර්ථකව upload කිරීමෙන් පසු, USB කේබලය සම්බන්ධ කර තබන්න.">After the program has successfully uploaded, keep the USB cable connected.</span></li>
+                                <li><span data-lang-en="Now, turn on the external power supply that is connected to the L298N driver." data-lang-si="දැන්, L298N ඩ්‍රයිවරයට සම්බන්ධ කර ඇති බාහිර බල සැපයුම ක්‍රියාත්මක කරන්න.">Now, turn on the external power supply that is connected to the L298N driver.</span></li>
+                                <li><span data-lang-en="The stepper motor should immediately begin to rotate at the constant speed you defined in the program." data-lang-si="ස්ටෙපර් මෝටරය ඔබ වැඩසටහනේ නිර්වචනය කළ නියත වේගයෙන් වහාම භ්‍රමණය වීමට පටන් ගත යුතුය.">The stepper motor should immediately begin to rotate at the constant speed you defined in the program.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section-inner-page mt-5">
+            <h2 data-lang-en="Displaying Load Cell Data on an I2C LCD: A Technical Guide" data-lang-si="I2C LCD මත Load Cell දත්ත පෙන්වීම: තාක්ෂණික මාර්ගෝපදේශයක්" class="mb-3"><i class="fas fa-desktop me-2"></i>Displaying Load Cell Data on an I2C LCD: A Technical Guide</h2>
+            <p data-lang-en="This guide outlines the process for connecting a load cell and an I2C LCD display to an Arduino Uno to show live weight readings." data-lang-si="සජීවී බර කියවීම් පෙන්වීම සඳහා Arduino Uno වෙත load cell එකක් සහ I2C LCD තිරයක් සම්බන්ධ කිරීමේ ක්‍රියාවලිය මෙම මාර්ගෝපදේශය මගින් දක්වා ඇත.">This guide outlines the process for connecting a load cell and an I2C LCD display to an Arduino Uno to show live weight readings.</p>
+
+            <div class="accordion" id="i2cLcdAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingLcdStep1">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLcdStep1" aria-expanded="false" aria-controls="collapseLcdStep1">
+                           <strong data-lang-en="Step 1:" data-lang-si="පියවර 1:">Step 1:</strong>&nbsp;<span data-lang-en="Required Components" data-lang-si="අවශ්‍ය උපාංග">Required Components</span>
+                        </button>
+                    </h2>
+                    <div id="collapseLcdStep1" class="accordion-collapse collapse" aria-labelledby="headingLcdStep1" data-bs-parent="#i2cLcdAccordion">
+                        <div class="accordion-body">
+                            <ul>
+                                <li><span data-lang-en="Arduino Uno" data-lang-si="Arduino Uno">Arduino Uno</span></li>
+                                <li><span data-lang-en="Load Cell with HX711 Amplifier Module" data-lang-si="HX711 ඇම්ප්ලිෆයර් මොඩියුලය සහිත Load Cell">Load Cell with HX711 Amplifier Module</span></li>
+                                <li><span data-lang-en="16x2 LCD Display with an I2C Backpack Module" data-lang-si="I2C Backpack මොඩියුලය සහිත 16x2 LCD තිරය">16x2 LCD Display with an I2C Backpack Module</span></li>
+                                <li><span data-lang-en="Jumper Wires" data-lang-si="ජම්පර් වයර්">Jumper Wires</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingLcdStep2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLcdStep2" aria-expanded="false" aria-controls="collapseLcdStep2">
+                            <strong data-lang-en="Step 2:" data-lang-si="පියවර 2:">Step 2:</strong>&nbsp;<span data-lang-en="Wiring the Complete System" data-lang-si="සම්පූර්ණ පද්ධතිය රැහැන්ගත කිරීම">Wiring the Complete System</span>
+                        </button>
+                    </h2>
+                    <div id="collapseLcdStep2" class="accordion-collapse collapse" aria-labelledby="headingLcdStep2" data-bs-parent="#i2cLcdAccordion">
+                        <div class="accordion-body">
+                            <p data-lang-en="Connect all components to the Arduino. The I2C module on the LCD simplifies its connection to just four wires." data-lang-si="සියලුම උපාංග Arduino වෙත සම්බන්ධ කරන්න. LCD හි ඇති I2C මොඩියුලය එහි සම්බන්ධතාවය වයර් හතරකට පමණක් සරල කරයි.">Connect all components to the Arduino. The I2C module on the LCD simplifies its connection to just four wires.</p>
+                            <p class="mt-2"><strong><span data-lang-en="Load Cell Amplifier (HX711) to Arduino:" data-lang-si="Load Cell ඇම්ප්ලිෆයර් (HX711) සිට Arduino දක්වා:">Load Cell Amplifier (HX711) to Arduino:</span></strong></p>
+                            <ul>
+                                <li><span data-lang-en="VCC &rarr; Arduino 5V" data-lang-si="VCC &rarr; Arduino 5V">VCC &rarr; Arduino 5V</span></li>
+                                <li><span data-lang-en="GND &rarr; Arduino GND" data-lang-si="GND &rarr; Arduino GND">GND &rarr; Arduino GND</span></li>
+                                <li><span data-lang-en="DT &rarr; Arduino Digital Pin D2" data-lang-si="DT &rarr; Arduino ඩිජිටල් පින් D2">DT &rarr; Arduino Digital Pin D2</span></li>
+                                <li><span data-lang-en="SCK &rarr; Arduino Digital Pin D3" data-lang-si="SCK &rarr; Arduino ඩිජිටල් පින් D3">SCK &rarr; Arduino Digital Pin D3</span></li>
+                            </ul>
+                            <p class="mt-2"><strong><span data-lang-en="I2C LCD Display to Arduino:" data-lang-si="I2C LCD තිරයේ සිට Arduino දක්වා:">I2C LCD Display to Arduino:</span></strong></p>
+                            <ul>
+                                <li><span data-lang-en="VCC &rarr; Arduino 5V" data-lang-si="VCC &rarr; Arduino 5V">VCC &rarr; Arduino 5V</span></li>
+                                <li><span data-lang-en="GND &rarr; Arduino GND" data-lang-si="GND &rarr; Arduino GND">GND &rarr; Arduino GND</span></li>
+                                <li><span data-lang-en="SDA &rarr; Arduino Pin A4" data-lang-si="SDA &rarr; Arduino පින් A4">SDA &rarr; Arduino Pin A4</span></li>
+                                <li><span data-lang-en="SCL &rarr; Arduino Pin A5" data-lang-si="SCL &rarr; Arduino පින් A5">SCL &rarr; Arduino Pin A5</span></li>
+                            </ul>
+                            <p class="mt-2" data-lang-en="Note: Both the HX711 module and the LCD share the Arduino's 5V and GND pins. A small breadboard can be used to easily distribute these connections. A common ground (GND) between all components is essential." data-lang-si="සටහන: HX711 මොඩියුලය සහ LCD යන දෙකම Arduino හි 5V සහ GND පින් බෙදා ගනී. මෙම සම්බන්ධතා පහසුවෙන් බෙදා හැරීම සඳහා කුඩා breadboard එකක් භාවිතා කළ හැකිය. සියලුම උපාංග අතර පොදු භූගත (GND) සම්බන්ධතාවයක් අත්‍යවශ්‍ය වේ.">Note: Both the HX711 module and the LCD share the Arduino's 5V and GND pins. A small breadboard can be used to easily distribute these connections. A common ground (GND) between all components is essential.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingLcdStep3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLcdStep3" aria-expanded="false" aria-controls="collapseLcdStep3">
+                            <strong data-lang-en="Step 3:" data-lang-si="පියවර 3:">Step 3:</strong>&nbsp;<span data-lang-en="The Program Logic" data-lang-si="වැඩසටහන් තර්කනය">The Program Logic</span>
+                        </button>
+                    </h2>
+                    <div id="collapseLcdStep3" class="accordion-collapse collapse" aria-labelledby="headingLcdStep3" data-bs-parent="#i2cLcdAccordion">
+                        <div class="accordion-body">
+                            <p data-lang-en="The Arduino program coordinates the two main tasks: reading the sensor and displaying the data. It does this by following these logical steps:" data-lang-si="Arduino වැඩසටහන ප්‍රධාන කාර්යයන් දෙක සම්බන්ධීකරණය කරයි: සංවේදකය කියවීම සහ දත්ත පෙන්වීම. එය මෙම තාර්කික පියවර අනුගමනය කරමින් මෙය සිදු කරයි:">The Arduino program coordinates the two main tasks: reading the sensor and displaying the data. It does this by following these logical steps:</p>
+                            <ul>
+                                <li><span data-lang-en="Use Special Libraries: The program relies on two key libraries: one to communicate with the HX711 load cell amplifier and another to control the I2C LCD display." data-lang-si="විශේෂ පුස්තකාල භාවිතා කරන්න: වැඩසටහන ප්‍රධාන පුස්තකාල දෙකක් මත රඳා පවතී: එකක් HX711 load cell ඇම්ප්ලිෆයරය සමඟ සන්නිවේදනය කිරීමට සහ අනෙක I2C LCD තිරය පාලනය කිරීමට.">Use Special Libraries: The program relies on two key libraries: one to communicate with the HX711 load cell amplifier and another to control the I2C LCD display.</span></li>
+                                <li><span data-lang-en="Find the LCD Address: Before running the main program, a special &quot;I2C Scanner&quot; sketch is used to automatically detect the unique address of your specific LCD module. This address is then used in the main program to establish communication." data-lang-si="LCD ලිපිනය සොයාගන්න: ප්‍රධාන වැඩසටහන ක්‍රියාත්මක කිරීමට පෙර, ඔබේ නිශ්චිත LCD මොඩියුලයේ අනන්‍ය ලිපිනය ස්වයංක්‍රීයව හඳුනා ගැනීමට විශේෂ &quot;I2C Scanner&quot; sketch එකක් භාවිතා කරයි. මෙම ලිපිනය පසුව සන්නිවේදනය ස්ථාපිත කිරීම සඳහා ප්‍රධාන වැඩසටහනේ භාවිතා වේ.">Find the LCD Address: Before running the main program, a special "I2C Scanner" sketch is used to automatically detect the unique address of your specific LCD module. This address is then used in the main program to establish communication.</span></li>
+                                <li><span data-lang-en="Use the Calibration Factor: The program uses the calibration_factor that you determined in the earlier steps. This crucial number is used to convert the raw, abstract signal from the load cell into a meaningful weight, such as grams (g)." data-lang-si="ක්‍රමාංකන සාධකය භාවිතා කරන්න: වැඩසටහන ඔබ පෙර පියවරේදී තීරණය කළ calibration_factor භාවිතා කරයි. මෙම තීරණාත්මක අංකය load cell එකෙන් ලැබෙන raw, වියුක්ත සංඥාව ග්‍රෑම් (g) වැනි අර්ථවත් බරකට පරිවර්තනය කිරීමට භාවිතා කරයි.">Use the Calibration Factor: The program uses the <code>calibration_factor</code> that you determined in the earlier steps. This crucial number is used to convert the raw, abstract signal from the load cell into a meaningful weight, such as grams (g).</span></li>
+                                <li><span data-lang-en="The Main Loop: Once set up, the program runs a continuous loop that does the following:" data-lang-si="ප්‍රධාන ලූපය: සැකසූ පසු, වැඩසටහන පහත සඳහන් දේ කරන අඛණ්ඩ ලූපයක් ක්‍රියාත්මක කරයි:">The Main Loop: Once set up, the program runs a continuous loop that does the following:</span>
+                                    <ul>
+                                        <li><span data-lang-en="Reads the current weight from the load cell." data-lang-si="Load cell එකෙන් වත්මන් බර කියවයි.">Reads the current weight from the load cell.</span></li>
+                                        <li><span data-lang-en="Clears any old text from the LCD screen." data-lang-si="LCD තිරයෙන් පැරණි ඕනෑම පෙළක් ඉවත් කරයි.">Clears any old text from the LCD screen.</span></li>
+                                        <li><span data-lang-en="Prints a static label, like &quot;Weight:&quot;, onto the first line of the display." data-lang-si="තිරයේ පළමු පේළියේ &quot;Weight:&quot; වැනි ස්ථාවර ලේබලයක් මුද්‍රණය කරයි.">Prints a static label, like "Weight:", onto the first line of the display.</span></li>
+                                        <li><span data-lang-en="Prints the live weight reading (the number in grams) onto the second line of the display." data-lang-si="සජීවී බර කියවීම (ග්‍රෑම් වලින් අංකය) තිරයේ දෙවන පේළියේ මුද්‍රණය කරයි.">Prints the live weight reading (the number in grams) onto the second line of the display.</span></li>
+                                        <li><span data-lang-en="Waits for a brief moment (e.g., half a second) and then repeats the entire process, providing a constantly updated display." data-lang-si="මඳ වේලාවක් (උදා: තත්පර භාගයක්) රැඳී සිට පසුව සම්පූර්ණ ක්‍රියාවලියම නැවත සිදු කරයි, නිරන්තරයෙන් යාවත්කාලීන වන දර්ශනයක් සපයයි.">Waits for a brief moment (e.g., half a second) and then repeats the entire process, providing a constantly updated display.</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                &copy; <span class="current-year"></span> <span data-lang-en="Mechanism Demonstrator Project. All Rights Reserved." data-lang-si="යාන්ත්‍රණ නිරූපණ ව්‍යාපෘතිය. සියලුම හිමිකම් ඇවිරිණි.">Mechanism Demonstrator Project. All Rights Reserved.</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

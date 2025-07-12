@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-en="Mechanism Demonstrator Kit | Home" data-lang-si="යාන්ත්‍රණ නිරූපණ කට්ටලය | මුල් පිටුව">Mechanism Demonstrator Kit | Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+</head>
+<body class="homepage-bg">
+
+<div id="preloader">
+    <div class="loader-icon">
+        <i class="fas fa-cog"></i>
+    </div>
+</div>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-frosted">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fas fa-cogs me-2"></i>Mechanism Kit</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html" data-lang-en="Home" data-lang-si="මුල් පිටුව">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="assembly.html" data-lang-en="Assembly" data-lang-si="එකලස් කිරීම">Assembly</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMechanisms" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-lang-en="Mechanisms" data-lang-si="යාන්ත්‍රණ">
+            Mechanisms
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMechanisms">
+            <li><a class="dropdown-item" href="mechanisms/gears.html" data-lang-en="Gears & Pinions" data-lang-si="ගියර් සහ පිනියන්">Gears & Pinions</a></li>
+            <li><a class="dropdown-item" href="mechanisms/gear-trains.html" data-lang-en="Gear Trains" data-lang-si="ගියර් පද්ධති">Gear Trains</a></li>
+            <li><a class="dropdown-item" href="mechanisms/belts.html" data-lang-en="Belts & Pulleys" data-lang-si="බෙල්ට් සහ පුලි">Belts & Pulleys</a></li>
+            <li><a class="dropdown-item" href="mechanisms/cams.html" data-lang-en="CAM Mechanisms" data-lang-si="කැම් යාන්ත්‍රණ">CAM Mechanisms</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="experiments.html" data-lang-en="Experiments" data-lang-si="පරීක්ෂණ">Experiments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Monitor.html" data-lang-en="Monitor" data-lang-si="නිරීක්ෂකය">Monitor</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Tension display.html" data-lang-en="Tension display" data-lang-si="ආතති දර්ශනය">Tension display</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Download.html" data-lang-en="Download" data-lang-si="බාගත කිරීම"><i class="fas fa-download me-1"></i>Download</a>
+        </li>
+        <li class="nav-item">
+             <a class="nav-link" href="about.html" data-lang-en="About Page" data-lang-si="අපි ගැන පිටුව">About Page</a>
+        </li>
+        <li class="nav-item">
+            <button id="lang-toggle-btn" class="btn btn-sm" data-switch-to="si">සිංහල</button> </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <main class="container mt-5 mb-5">
+        <section class="text-center p-5 rounded mb-4 hero-section-frosted">
+            <svg id="drawing-heading" viewBox="0 0 1000 120" xmlns="http://www.w3.org/2000/svg">
+  <text text-anchor="middle" x="50%" y="45%">BASIC MECHANICS LABORATORY</text>
+  <text text-anchor="middle" x="50%" y="85%">DEMONSTRATION KIT</text>
+</svg>
+            <p class="lead" data-lang-en="A kit designed for school and university students to easily learn and experiment with the principles of mechanics." data-lang-si="පාසල් සහ විශ්ව විද්‍යාල සිසුන්ට යාන්ත්‍ර විද්‍යාවේ මූලධර්ම පහසුවෙන් ඉගෙනීමට සහ අත්හදා බැලීමට නිර්මාණය කර ඇති කට්ටලයකි.">A kit designed for school and university students to easily learn and experiment with the principles of mechanics.</p>
+            
+<button type="button" class="btn btn-primary btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#modelGalleryModal" id="openModelViewerBtn">
+    <i class="fas fa-cubes me-2"></i><span data-lang-en="Interactive Assembly" data-lang-si="ත්‍රිමාණ එකලස් කිරීම">Interactive Assembly</span>
+</button>
+        </section>
+
+        <section class="row text-center">
+            <div class="col-lg-3 col-md-6 mb-4 animate-card-on-load" style="--card-animation-delay: 0.1s;">
+                <div class="card h-100 frosted-card">
+                  <div class="card-body d-flex flex-column">
+                    <i class="fas fa-cogs icon-large"></i>
+                    <h3 class="card-title" data-lang-en="Learn About Mechanisms" data-lang-si="යාන්ත්‍රණ පිළිබඳව ඉගෙන ගන්න">Learn About Mechanisms</h3>
+                    <p class="card-text" data-lang-en="Understand how various mechanisms like Gears, Gear Trains, Belts, and CAMs work and their principles." data-lang-si="ගියර්, ගියර් පද්ධති, බෙල්ට්, සහ කැම් වැනි විවිධ යාන්ත්‍රණ ක්‍රියා කරන ආකාරය සහ ඒවායේ මූලධර්ම තේරුම් ගන්න.">Understand how various mechanisms like Gears, Gear Trains, Belts, and CAMs work and their principles.</p>
+                    <a href="mechanisms/gears.html" class="btn btn-outline-primary mt-auto"><span data-lang-en="Read More" data-lang-si="වැඩිදුර කියවන්න">Read More</span></a>
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 animate-card-on-load" style="--card-animation-delay: 0.3s;">
+                <div class="card h-100 frosted-card">
+                  <div class="card-body d-flex flex-column">
+                    <i class="fas fa-wrench icon-large"></i>
+                    <h3 class="card-title" data-lang-en="Mechanical Assembly" data-lang-si="යාන්ත්‍රික එකලස් කිරීම">Mechanical Assembly</h3>
+                    <p class="card-text" data-lang-en="Step-by-step guides to correctly assemble and disassemble the mechanical parts of the kit." data-lang-si="කට්ටලයේ යාන්ත්‍රික කොටස් නිවැරදිව එකලස් කිරීමට සහ විසුරුවා හැරීමට පියවරෙන්-පියවර මාර්ගෝපදේශ.">Step-by-step guides to correctly assemble and disassemble the mechanical parts of the kit.</p>
+                    <a href="assembly.html" class="btn btn-outline-primary mt-auto"><span data-lang-en="View Instructions" data-lang-si="උපදෙස් බලන්න">View Instructions</span></a>
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 animate-card-on-load" style="--card-animation-delay: 0.5s;">
+                <div class="card h-100 frosted-card">
+                  <div class="card-body d-flex flex-column">
+                    <i class="fas fa-microchip icon-large"></i>
+                    <h3 class="card-title" data-lang-en="Electronic Assembly" data-lang-si="ඉලෙක්ට්‍රොනික එකලස් කිරීම">Electronic Assembly</h3>
+                    <p class="card-text" data-lang-en="Instructions for connecting sensors, Arduino, motor drivers, and other electronic components." data-lang-si="සංවේදක, Arduino, මෝටර් ඩ්‍රයිවර්, සහ අනෙකුත් ඉලෙක්ට්‍රොනික උපාංග සම්බන්ධ කිරීම සඳහා උපදෙස්.">Instructions for connecting sensors, Arduino, motor drivers, and other electronic components.</p>
+                    <a href="Electronics.html" class="btn btn-outline-primary mt-auto"><span data-lang-en="View Electronics Guide" data-lang-si="ඉලෙක්ට්‍රොනික මාර්ගෝපදේශය බලන්න">View Electronics Guide</span></a>
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 animate-card-on-load" style="--card-animation-delay: 0.7s;">
+                <div class="card h-100 frosted-card">
+                  <div class="card-body d-flex flex-column">
+                    <i class="fas fa-flask icon-large"></i>
+                    <h3 class="card-title" data-lang-en="Experiments & Demonstrations" data-lang-si="පරීක්ෂණ සහ නිරූපණ">Experiments & Demonstrations</h3>
+                    <p class="card-text" data-lang-en="Practical experiments and demonstrations you can perform using the fully assembled kit." data-lang-si="සම්පූර්ණයෙන් එකලස් කරන ලද කට්ටලය භාවිතයෙන් ඔබට සිදු කළ හැකි ප්‍රායෝගික පරීක්ෂණ සහ නිරූපණ.">Practical experiments and demonstrations you can perform using the fully assembled kit.</p>
+                    <a href="experiments.html" class="btn btn-outline-primary mt-auto"><span data-lang-en="View Experiments" data-lang-si="පරීක්ෂණ බලන්න">View Experiments</span></a>
+                  </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                    <p class="mb-0">
+                        &copy; <span class="current-year"></span> <span data-lang-en="Mechanism Demonstrator Project. All Rights Reserved." data-lang-si="යාන්ත්‍රණ නිරූපණ ව්‍යාපෘතිය. සියලුම හිමිකම් ඇවිරිණි.">Mechanism Demonstrator Project. All Rights Reserved.</span>
+                    </p>
+                </div>
+                <div class="col-lg-4 text-center text-lg-end">
+                    <p class="mb-0">
+                        <span data-lang-en="Project by: Dept. of Engineering Technology,<br>Uva Wellassa University." data-lang-si="ව්‍යාපෘතිය: ඉංජිනේරු තාක්ෂණ අධ්‍යයනාංශය,<br>ඌව වෙල්ලස්ස විශ්වවිද්‍යාලය.">Project by: Dept. of Engineering Technology,<br>Uva Wellassa University.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="modelGalleryModal" tabindex="-1" aria-labelledby="modelGalleryModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content model-viewer-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-main-title">CAM Assembly</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+<div class="modal-body p-1 d-flex flex-column">
+  <div class="model-viewer-container flex-grow-1">
+      
+      <div class="modal-loader">
+          <div class="spinner-border text-light" style="width: 3rem; height: 3rem;" role="status"></div>
+          <span class="loading-text text-white-50 mt-3">Loading 3D Model...</span>
+      </div>
+
+
+
+      <div id="single-viewer-wrapper" class="h-100 viewer-wrapper">
+          <model-viewer id="main-model-viewer"
+                src="models/cam_mechanism.glb"
+                alt="3D model viewer"
+                ar camera-controls shadow-intensity="1" environment-image="neutral" auto-rotate>
+          </model-viewer>
+      </div>
+
+      <div id="split-viewer-wrapper" class="d-none h-100 viewer-wrapper">
+          <div class="row g-2 h-100">
+              <div class="col-6 d-flex flex-column text-center">
+                  <h6 id="left-viewer-title" class="text-white-50 py-1"></h6>
+                  <model-viewer id="left-viewer" class="split-viewer" camera-controls auto-rotate></model-viewer>
+              </div>
+              <div class="col-6 d-flex flex-column text-center">
+                  <h6 id="right-viewer-title" class="text-white-50 py-1"></h6>
+                  <model-viewer id="right-viewer" class="split-viewer" camera-controls auto-rotate></model-viewer>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal-footer model-selection-bar">
+  <div class="d-flex justify-content-center flex-wrap gap-2 w-100">
+      <button type="button" class="btn btn-outline-light model-select-btn active" data-view-type="single" data-model-src="models/cam_mechanism.glb">CAM Assembly</button>
+      
+      <button type="button" class="btn btn-outline-light model-select-btn" data-view-type="single" data-model-src="models/belt.glb">Belt Drive Assembly</button>
+      <button type="button" class="btn btn-outline-light model-select-btn" data-view-type="single" data-model-src="models/compound-gear.glb">Compound Gears</button>
+      <button type="button" class="btn btn-outline-info model-select-btn" data-view-type="split" 
+              data-main-title="Simple Gear Train"
+              data-left-title="Simple-Involute" data-left-src="models/SimpleTrainInvolute.glb" 
+              data-right-title="Simple-Cyclodial" data-right-src="models/SimpleTrainCyclodial.glb">
+          Simple Gear Train
+      </button>
+      <button type="button" class="btn btn-outline-info model-select-btn" data-view-type="split" 
+              data-main-title="Center Distance Adjustment"
+              data-left-title="Involute Teeth" data-left-src="models/involute-gears.glb" 
+              data-right-title="Cycloidal Teeth" data-right-src="models/cycloidal-gears.glb">
+          Center Distance Adjustment
+      </button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
